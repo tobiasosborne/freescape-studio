@@ -1,0 +1,29 @@
+✔ editor wires real model through add, inspector, undo/redo, grouping, save and play (379.241243ms)
+✔ editor script diagnostics reject bad source and apply valid FCL (162.055637ms)
+✔ editor creates and deletes areas and edits instruments, palettes and controls (222.887827ms)
+✖ editor exposes independent camera navigation and border-zone form controls (139.876696ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1185.650907
+
+✖ failing tests:
+
+test at tests/editor.test.js:30:1
+✖ editor exposes independent camera navigation and border-zone form controls (139.876696ms)
+  AssertionError [ERR_ASSERTION]: Action new-zone:undefined exists
+      at Object.click (file:///home/tobias/Projects/3d-construction-kit/tests/editor.test.js:9:182)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/editor.test.js:31:356)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,20 @@
+✖ Three.js viewport installs TransformControls helper, updates picking and disposes resources (64.087524ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 376.200961
+
+✖ failing tests:
+
+test at tests/viewport.test.js:6:1
+✖ Three.js viewport installs TransformControls helper, updates picking and disposes resources (64.087524ms)
+  TypeError: Cannot read properties of undefined (reading 'userData')
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/viewport.test.js:53:208)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17)

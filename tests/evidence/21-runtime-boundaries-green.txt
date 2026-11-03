@@ -1,0 +1,35 @@
+✔ G09: FLY1 is horizontal, FLY2 follows pitch (4.172759ms)
+✔ swept movement stops at a solid wall and emits collision; invisible objects allow travel (2.660371ms)
+✔ walk climbs low steps, stands on real pyramid surface and records unsafe falls (7.357131ms)
+✔ sensors respect range, directional mask, rate, effect and line of sight (1.137744ms)
+✔ camera-style free movement bypasses area bounds and solid geometry (0.296344ms)
+✔ colliding with an included global object dispatches its condition in the global area (0.740832ms)
+✔ G03: reset clears user variables and preserves V255 (0.328063ms)
+✔ G04: destroyed object cannot be made visible until reset (0.309909ms)
+✔ G05: GOTO selects entrance position and rotation and stops the old area script (0.792579ms)
+✔ G06: loop moves moveable objects 20 times and ignores static objects (1.228466ms)
+✔ G07: PRINT only updates a text instrument, and translates newline escapes (0.439843ms)
+✔ G08: mode clamps to supported player vehicles (0.232174ms)
+✔ FCL arithmetic uses value first, destination second; branches nest and aliases compile (0.30392ms)
+✔ initial general condition runs once; general and current area conditions run per frame (0.446156ms)
+✔ WAIT resumes next frame; DELAY freezes other scripts for 50hz duration (0.33964ms)
+✔ object activation is range limited, event flags are transient and execute preserves caller (0.334529ms)
+✔ animator WAITTRIG blocks, consumes trigger and resumes; STOP preserves state (0.333004ms)
+✔ sound scheduling and timer flag use simulation frames (0.537546ms)
+✔ compiler reports unknown commands, malformed blocks, invalid vars and literal range (0.527508ms)
+✔ execution budget terminates recursive EXECUTE instead of hanging (8.659193ms)
+✔ game save/load restores active state, variables, positions and animator continuations (1.875663ms)
+✔ S1 VAR>?/VAR<? command reference uses P1 compared with P2, including aliases (0.401928ms)
+✔ S1 SHOT? and COLLIDED? consume their own event flag on first check (0.99392ms)
+✔ S1 REMOVE detaches a member from animator movement (0.80759ms)
+✔ S1 SETVAR literal destination is a no-op (0.329131ms)
+✔ S1 animator enclosure collides with an obstacle between two members (0.679034ms)
+✔ ENDGAME stops the old frame immediately after restoring the world (0.366756ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 69.826086

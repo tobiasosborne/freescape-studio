@@ -1,0 +1,92 @@
+
+> freescape-studio@0.1.0 test
+> node --test --test-isolation=none tests/*.test.js
+
+✔ manual sound bank has 32 slots with only 0–6 defined by default (1.068765ms)
+✔ undefined sounds remain silent and defined sounds schedule oscillator and gain (0.314665ms)
+Built dist/index.html (1181 kB), self-contained; no CDN or server required.
+✖ production editor is one offline HTML artifact with embedded CSS and runtime (121.382063ms)
+✔ system 50 Hz counter can be reset from FCL and then advances independently (1.300193ms)
+✔ unread SHOT flag remains available on a later activation until consumed (0.493326ms)
+✔ global object interactions update included global object state without ID collisions (0.297098ms)
+✔ border zones require a defined action key and obey mouse button masks and screen coordinates (0.158117ms)
+✔ malformed projects reject non-finite defaults, unsafe assets and duplicate entrances (1.056327ms)
+✔ group stretching scales member positions and sizes from group origin (0.440756ms)
+✔ turning a group rotates members around its common centre (0.349647ms)
+✔ sample world validates and every object, area, general and animator script compiles (2.564733ms)
+✔ sample has reachable outer beacons, a locked gate and an instrumented two-area conclusion (1.41811ms)
+✔ editor wires real model through add, inspector, undo/redo, grouping, save and play (379.986682ms)
+✔ editor script diagnostics reject bad source and apply valid FCL (166.555377ms)
+✔ editor creates and deletes areas and edits instruments, palettes and controls (211.108868ms)
+✔ editor exposes independent camera navigation and border-zone form controls (155.027576ms)
+✔ face shade controls and group inspector transforms update saved world geometry (215.246639ms)
+✔ standalone embeds world and runner safely with no network dependency (0.328177ms)
+✔ all geometric primitive families produce finite vertices and expected faces (1.866273ms)
+✔ two-colour face shades preserve both palette entries in a repeating texture (0.689477ms)
+✔ solid cuboid faces point outward, including its upward floor surface (0.210787ms)
+✔ point edits and orthogonal turns are represented in geometry (0.242669ms)
+✔ G01: new areas contain cuboid 1 and entrance 1 (0.082147ms)
+✔ G02: copy preserves conditions and has a new identity (0.181838ms)
+✔ group copy remaps members and transforms each child once (0.244343ms)
+✔ history atomically undoes and redoes a world edit (0.440513ms)
+✔ world round trips and rejects invalid input without mutating caller (0.558703ms)
+✔ invalid transforms are atomic (0.168674ms)
+✔ G09: FLY1 is horizontal, FLY2 follows pitch (1.417095ms)
+✔ swept movement stops at a solid wall and emits collision; invisible objects allow travel (1.353599ms)
+✔ walk climbs low steps, stands on real pyramid surface and records unsafe falls (5.688958ms)
+✔ sensors respect range, directional mask, rate, effect and line of sight (0.839269ms)
+✔ camera-style free movement bypasses area bounds and solid geometry (0.223292ms)
+✔ five editor cameras retain independent positions and freely cross area limits (0.601467ms)
+✔ S1 object files preserve geometry/group but omit names and conditions; load remaps IDs (0.373786ms)
+✔ local library save, load, delete and failure reporting use separate namespaced entries (0.393635ms)
+✔ instruments clamp and scale reversed bars, signed numbers and undefined types (0.103948ms)
+✔ palette spread includes endpoints and quantizes channels to original four-bit RGB (0.151511ms)
+✔ player handles Shift movement, a missed shot and custom border controls (6.152245ms)
+✔ G03: reset clears user variables and preserves V255 (0.381465ms)
+✔ G04: destroyed object cannot be made visible until reset (0.259107ms)
+✔ G05: GOTO selects entrance position and rotation and stops the old area script (0.30229ms)
+✔ G06: loop moves moveable objects 20 times and ignores static objects (1.027563ms)
+✔ G07: PRINT only updates a text instrument, and translates newline escapes (0.319709ms)
+✔ G08: mode clamps to supported player vehicles (0.214646ms)
+✔ FCL arithmetic uses value first, destination second; branches nest and aliases compile (0.271919ms)
+✔ initial general condition runs once; general and current area conditions run per frame (0.365411ms)
+✔ WAIT resumes next frame; DELAY freezes other scripts for 50hz duration (0.293909ms)
+✔ object activation is range limited, event flags are transient and execute preserves caller (0.295836ms)
+✔ animator WAITTRIG blocks, consumes trigger and resumes; STOP preserves state (0.32426ms)
+✔ sound scheduling and timer flag use simulation frames (0.299746ms)
+✔ compiler reports unknown commands, malformed blocks, invalid vars and literal range (0.275366ms)
+✔ execution budget terminates recursive EXECUTE instead of hanging (5.965768ms)
+✔ game save/load restores active state, variables, positions and animator continuations (0.968371ms)
+✔ S1 VAR>?/VAR<? command reference uses P1 compared with P2, including aliases (0.296717ms)
+✔ S1 SHOT? and COLLIDED? consume their own event flag on first check (0.567211ms)
+✔ S1 REMOVE detaches a member from animator movement (0.357453ms)
+✔ S1 SETVAR literal destination is a no-op (0.184511ms)
+✔ S1 animator enclosure collides with an obstacle between two members (0.336649ms)
+✔ Three.js viewport installs TransformControls helper, updates picking and disposes resources (19.421685ms)
+ℹ tests 60
+ℹ suites 0
+ℹ pass 59
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1752.881773
+
+✖ failing tests:
+
+test at tests/build.test.js:2:1
+✖ production editor is one offline HTML artifact with embedded CSS and runtime (121.382063ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!html.includes('src="/src/app.js"'))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/build.test.js:2:317)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

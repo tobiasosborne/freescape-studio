@@ -1,0 +1,55 @@
+✔ player handles Shift movement, a missed shot and custom border controls (83.370731ms)
+✔ player supports separate fly selection, walk/fly toggle and centre cursor toggle (13.113695ms)
+✔ a mouse miss does not fall back to shooting the object under the centre cursor (26.22613ms)
+✔ mouse button and logical-screen coordinates populate V16, V17 and V18 (18.047396ms)
+✖ walk height can be adjusted with rise/fall and FCL height changes survive the next frame (37.788799ms)
+✖ releasing crouch under a low ceiling keeps the head below the ceiling and restores standing outside (20.350372ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 4
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 960.149481
+
+✖ failing tests:
+
+test at tests/player.test.js:205:1
+✖ walk height can be adjusted with rise/fall and FCL height changes survive the next frame (37.788799ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(p.runtime.height<280)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/player.test.js:206:549)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/player.test.js:208:1
+✖ releasing crouch under a low ceiling keeps the head below the ceiling and restores standing outside (20.350372ms)
+  AssertionError [ERR_ASSERTION]: head went through ceiling: 580
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/player.test.js:209:627)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

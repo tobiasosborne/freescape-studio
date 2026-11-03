@@ -1,0 +1,10 @@
+✔ manual sound bank has 32 slots with only 0–6 defined by default (1.308713ms)
+✔ undefined sounds remain silent and defined sounds schedule oscillator and gain (0.340026ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9.785518

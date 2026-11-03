@@ -1,0 +1,22 @@
+{
+  "name": "freescape-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "node scripts/build.mjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "node --test --test-isolation=none tests/*.test.js",
+    "test:browser": "node tests/browser.mjs"
+  },
+  "dependencies": {
+    "three": "0.169.0"
+  },
+  "devDependencies": {
+    "vite": "5.4.21",
+    "playwright": "1.62.1",
+    "esbuild": "0.21.5",
+    "jsdom": "28.1.0"
+  }
+}

@@ -1,0 +1,53 @@
+✔ G03: reset clears user variables and preserves V255 (1.472921ms)
+✔ G04: destroyed object cannot be made visible until reset (1.998506ms)
+✔ G05: GOTO selects entrance position and rotation and stops the old area script (0.998999ms)
+✔ G06: loop moves moveable objects 20 times and ignores static objects (1.698705ms)
+✔ G07: PRINT only updates a text instrument, and translates newline escapes (0.547304ms)
+✔ G08: mode clamps to supported player vehicles (0.329417ms)
+✔ FCL arithmetic uses value first, destination second; branches nest and aliases compile (0.606856ms)
+✔ initial general condition runs once; general and current area conditions run per frame (0.580763ms)
+✔ WAIT resumes next frame; DELAY freezes other scripts for 50hz duration (0.558754ms)
+✔ object activation is range limited, event flags are transient and execute preserves caller (0.63646ms)
+✔ animator WAITTRIG blocks, consumes trigger and resumes; STOP preserves state (0.514662ms)
+✔ sound scheduling and timer flag use simulation frames (0.480492ms)
+✔ compiler reports unknown commands, malformed blocks, invalid vars and literal range (0.588912ms)
+✔ execution budget terminates recursive EXECUTE instead of hanging (7.924266ms)
+✔ game save/load restores active state, variables, positions and animator continuations (1.532259ms)
+✔ S1 VAR>?/VAR<? command reference uses P1 compared with P2, including aliases (0.367273ms)
+✔ S1 SHOT? and COLLIDED? consume their own event flag on first check (0.734585ms)
+✔ S1 REMOVE detaches a member from animator movement (0.423828ms)
+✔ S1 SETVAR literal destination is a no-op (0.244802ms)
+✔ S1 animator enclosure collides with an obstacle between two members (0.655041ms)
+✔ ENDGAME stops the old frame immediately after restoring the world (0.297117ms)
+✖ including a moveable group animates its members together and reset restores them (1.23192ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 21
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 45.965036
+
+✖ failing tests:
+
+test at tests/runtime.test.js:256:1
+✖ including a moveable group animates its members together and reset restores them (1.23192ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1000 !== 1100
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/runtime.test.js:256:370)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1000,
+    expected: 1100,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

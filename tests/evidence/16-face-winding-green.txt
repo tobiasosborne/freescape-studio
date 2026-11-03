@@ -1,0 +1,12 @@
+✔ all geometric primitive families produce finite vertices and expected faces (3.3896ms)
+✔ two-colour face shades preserve both palette entries in a repeating texture (0.71127ms)
+✔ solid cuboid faces point outward, including its upward floor surface (0.592661ms)
+✔ point edits and orthogonal turns are represented in geometry (0.303281ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33.861075

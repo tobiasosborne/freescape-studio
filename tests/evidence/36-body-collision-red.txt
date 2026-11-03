@@ -1,0 +1,55 @@
+✔ G09: FLY1 is horizontal, FLY2 follows pitch (4.253921ms)
+✔ swept movement stops at a solid wall and emits collision; invisible objects allow travel (3.368558ms)
+✔ walk climbs low steps, stands on real pyramid surface and records unsafe falls (7.766227ms)
+✔ sensors respect range, directional mask, rate, effect and line of sight (1.299509ms)
+✔ camera-style free movement bypasses area bounds and solid geometry (0.337577ms)
+✔ colliding with an included global object dispatches its condition in the global area (0.700708ms)
+✔ including a global group adds its complete geometry to collision and line of sight (0.585193ms)
+✖ flying collision protects the complete player body when descending onto a platform (0.763135ms)
+✖ flying collision detects a thin obstacle between the feet and head (0.554218ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 7
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 52.654451
+
+✖ failing tests:
+
+test at tests/movement.test.js:120:1
+✖ flying collision protects the complete player body when descending onto a platform (0.763135ms)
+  AssertionError [ERR_ASSERTION]: feet penetrated platform: 260
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/movement.test.js:121:197)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/movement.test.js:123:1
+✖ flying collision detects a thin obstacle between the feet and head (0.554218ms)
+  AssertionError [ERR_ASSERTION]: player passed through a body-height obstacle: 4500
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/movement.test.js:124:198)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

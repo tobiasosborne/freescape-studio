@@ -1,0 +1,10 @@
+✔ sample world validates and every object, area, general and animator script compiles (4.586436ms)
+✔ sample has reachable outer beacons, a locked gate and an instrumented two-area conclusion (2.935393ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 35.146344

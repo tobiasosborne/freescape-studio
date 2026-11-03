@@ -1,0 +1,54 @@
+{
+  "retrieved": "2026-10-17",
+  "baseline": "3D Construction Kit, 1991, IBM PC / Amiga / Atari ST (first edition, not Kit II)",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "3D Construction Kit original 16-bit manual, transcribed by LSD, preserved by Lemon Amiga",
+      "url": "https://www.lemonamiga.com/doc/3d-construction-kit/5",
+      "kind": "primary manual transcription",
+      "access": "Complete 2022-line transcription retrieved via legacy URL https://www.lemonamiga.com/games/docs.php?id=5. Section headings are locators; page numbers are not invented."
+    },
+    {
+      "id": "S2",
+      "title": "Original IBM PC, Amiga and Atari ST manual scan",
+      "url": "https://arcarc.nl/archive/Games/0/3D%20Construction%20%20Kit/3D%20Construction%20Kit%20-%20Manual%20%28PC--Amiga%20-%20ST%20Version%29%20%281991%29%28%29.pdf",
+      "kind": "primary manual scan",
+      "access": "Indexed contents and index retrieved; binary download unavailable in restricted shell. Not archived or visually verified."
+    },
+    {
+      "id": "S3",
+      "title": "3D Construction Kit User Club Newsletter, issue 4",
+      "url": "https://www.3dconstructionkit.co.uk/fanzines/3DCKUC/Issue4.pdf",
+      "kind": "contemporary publisher support newsletter",
+      "access": "Indexed text retrieved. Confirms 8/16-bit syntax differences, save/load controls and animation support."
+    },
+    {
+      "id": "S4",
+      "title": "Incentive Software",
+      "url": "https://en.wikipedia.org/wiki/Incentive_Software",
+      "kind": "user-provided discovery entry",
+      "access": "Read; used only to identify product and historical context."
+    },
+    {
+      "id": "S5",
+      "title": "Original 8-bit manual",
+      "url": "https://www.3dconstructionkit.co.uk/documentation/8-Bit_3D_Construction_Kit_Manual.pdf",
+      "kind": "primary manual for contrasting edition",
+      "access": "Indexed text retrieved. Explicitly not the executable compatibility baseline."
+    },
+    {
+      "id": "S6",
+      "title": "3D Construction Kit User Club Newsletter, issue 1, Kitgame startup listing",
+      "url": "https://3dconstructionkit.co.uk/fanzines/3DCKUC/Issue1.pdf",
+      "kind": "contemporary publisher listing",
+      "access": "Indexed listing retrieved; confirms comparison operand order and continuing startup loop idiom."
+    }
+  ],
+  "rules": [
+    "Manual requirements outrank recollection.",
+    "A semantic golden is an independently transcribed expected result, never a dump of implementation output.",
+    "A new UI screenshot is a regression baseline, not an original-product oracle.",
+    "Unverified behavior is labelled a reimagining decision, not historical fact."
+  ]
+}

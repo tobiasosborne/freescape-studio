@@ -1,0 +1,31 @@
+✔ G03: reset clears user variables and preserves V255 (1.25603ms)
+✔ G04: destroyed object cannot be made visible until reset (1.758653ms)
+✔ G05: GOTO selects entrance position and rotation and stops the old area script (0.746966ms)
+✔ G06: loop moves moveable objects 20 times and ignores static objects (1.401501ms)
+✔ G07: PRINT only updates a text instrument, and translates newline escapes (0.412866ms)
+✔ G08: mode clamps to supported player vehicles (0.272074ms)
+✔ FCL arithmetic uses value first, destination second; branches nest and aliases compile (0.457401ms)
+✔ initial general condition runs once; general and current area conditions run per frame (0.472348ms)
+✔ WAIT resumes next frame; DELAY freezes other scripts for 50hz duration (0.465753ms)
+✔ object activation is range limited, event flags are transient and execute preserves caller (0.449741ms)
+✔ animator WAITTRIG blocks, consumes trigger and resumes; STOP preserves state (0.375019ms)
+✔ sound scheduling and timer flag use simulation frames (0.373204ms)
+✔ compiler reports unknown commands, malformed blocks, invalid vars and literal range (0.857037ms)
+✔ execution budget terminates recursive EXECUTE instead of hanging (6.222181ms)
+✔ game save/load restores active state, variables, positions and animator continuations (1.13879ms)
+✔ S1 VAR>?/VAR<? command reference uses P1 compared with P2, including aliases (0.21089ms)
+✔ S1 SHOT? and COLLIDED? consume their own event flag on first check (0.512934ms)
+✔ S1 REMOVE detaches a member from animator movement (0.331219ms)
+✔ S1 SETVAR literal destination is a no-op (0.344719ms)
+✔ S1 animator enclosure collides with an obstacle between two members (0.358028ms)
+✔ ENDGAME stops the old frame immediately after restoring the world (0.193764ms)
+✔ including a moveable group animates its members together and reset restores them (0.459485ms)
+✔ publisher startup idiom supports LOOP(0) with AGAIN inside an ELSE branch (0.19902ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33.447803

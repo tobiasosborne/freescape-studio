@@ -1,0 +1,129 @@
+✖ TURN keeps a non-cubic solid size and position equal to its rendered bounds (2.505753ms)
+✖ TURN rotates a facet to an orthogonal plane and keeps the centre fixed (0.450831ms)
+✖ a group TURN updates all non-cubic member bounds and the group enclosure (2.074248ms)
+✖ a TURN that would leave the area fails without changing the object (0.402913ms)
+✖ centre-pivot scaling keeps the centre of a group fixed (0.427327ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 42.604945
+
+✖ failing tests:
+
+test at tests/transforms.test.js:5:1
+✖ TURN keeps a non-cubic solid size and position equal to its rendered bounds (2.505753ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   100,
+  +   200,
+      300,
+  -   200,
+  -   100
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/transforms.test.js:5:263)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/transforms.test.js:6:1
+✖ TURN rotates a facet to an orthogonal plane and keeps the centre fixed (0.450831ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   300,
+  +   200,
+      0,
+  -   200,
+  -   300
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/transforms.test.js:6:238)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/transforms.test.js:7:1
+✖ a group TURN updates all non-cubic member bounds and the group enclosure (2.074248ms)
+  AssertionError [ERR_ASSERTION]: 1200,100,1400 differs from 1300,100,1300
+      at file:///home/tobias/Projects/3d-construction-kit/tests/transforms.test.js:4:61
+      at Array.forEach (<anonymous>)
+      at close (file:///home/tobias/Projects/3d-construction-kit/tests/transforms.test.js:4:39)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/transforms.test.js:7:357)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/transforms.test.js:8:1
+✖ a TURN that would leave the area fails without changing the object (0.402913ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/transforms.test.js:8:212)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /bounds|position/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests/transforms.test.js:9:1
+✖ centre-pivot scaling keeps the centre of a group fixed (0.427327ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1000 !== 850
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/transforms.test.js:9:338)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1000,
+    expected: 850,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

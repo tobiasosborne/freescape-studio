@@ -1,0 +1,34 @@
+
+> freescape-studio@0.1.0 test
+> node --test --test-isolation=none tests/*.test.js
+
+✔ G01: new areas contain cuboid 1 and entrance 1 (0.731664ms)
+✔ G02: copy preserves conditions and has a new identity (0.272635ms)
+✔ group copy remaps members and transforms each child once (0.415739ms)
+✔ history atomically undoes and redoes a world edit (0.50702ms)
+✔ world round trips and rejects invalid input without mutating caller (1.76047ms)
+✔ invalid transforms are atomic (0.22312ms)
+✖ tests/runtime.test.js (0.063811ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14.025295
+
+✖ failing tests:
+
+✖ tests/runtime.test.js (0.063811ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/3d-construction-kit/src/runtime.js' imported from /home/tobias/Projects/3d-construction-kit/tests/runtime.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+      at moduleResolve (node:internal/modules/esm/resolve:864:10)
+      at defaultResolve (node:internal/modules/esm/resolve:990:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+      at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+      at #link (node:internal/modules/esm/module_job:208:49) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///home/tobias/Projects/3d-construction-kit/src/runtime.js'
+  }

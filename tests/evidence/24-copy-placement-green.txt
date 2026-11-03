@@ -1,0 +1,14 @@
+✔ editor wires real model through add, inspector, undo/redo, grouping, save and play (1541.967841ms)
+✔ editor script diagnostics reject bad source and apply valid FCL (500.639755ms)
+✔ editor creates and deletes areas and edits instruments, palettes and controls (705.096701ms)
+✔ editor exposes independent camera navigation and border-zone form controls (364.137389ms)
+✔ face shade controls and group inspector transforms update saved world geometry (862.584807ms)
+✔ copy placement offers all relative directions and preserves conditions (433.402314ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5260.508585

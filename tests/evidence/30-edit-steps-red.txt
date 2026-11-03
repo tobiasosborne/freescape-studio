@@ -1,0 +1,32 @@
+✔ editor wires real model through add, inspector, undo/redo, grouping, save and play (412.09078ms)
+✔ editor script diagnostics reject bad source and apply valid FCL (190.538881ms)
+✔ editor creates and deletes areas and edits instruments, palettes and controls (226.865738ms)
+✔ editor exposes independent camera navigation and border-zone form controls (146.325203ms)
+✔ face shade controls and group inspector transforms update saved world geometry (202.758115ms)
+✔ copy placement offers all relative directions and preserves conditions (143.589479ms)
+✖ object movement and stretch controls support fine and separate right-button steps (122.935682ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1713.61625
+
+✖ failing tests:
+
+test at tests/editor.test.js:229:1
+✖ object movement and stretch controls support fine and separate right-button steps (122.935682ms)
+  AssertionError [ERR_ASSERTION]: Action nudge:move:0:1 exists
+      at Object.click (file:///home/tobias/Projects/3d-construction-kit/tests/editor.test.js:70:14)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/editor.test.js:229:161)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

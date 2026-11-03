@@ -1,0 +1,30 @@
+✔ editor wires real model through add, inspector, undo/redo, grouping, save and play (386.543089ms)
+✔ editor script diagnostics reject bad source and apply valid FCL (168.468847ms)
+✖ editor creates and deletes areas and edits instruments, palettes and controls (135.44409ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 945.789574
+
+✖ failing tests:
+
+test at tests/editor.test.js:24:1
+✖ editor creates and deletes areas and edits instruments, palettes and controls (135.44409ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  '0' !== '1'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/editor.test.js:25:200)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '0',
+    expected: '1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,12 @@
+{
+  "provenance":"S1, original 1991 16-bit manual transcription; expected results authored independently before implementation, 2026-10-17",
+  "G01":{"section":"AREA MENU OPTIONS / CREATE AREA","expected":{"baseId":1,"baseType":"cuboid","entranceId":1}},
+  "G02":{"section":"OBJECT MENU OPTIONS / COPY","sourceCondition":"IF SHOT? THEN INVIS (2) ENDIF","expectedCondition":"IF SHOT? THEN INVIS (2) ENDIF","originalId":2,"copyId":3},
+  "G03":{"section":"GENERAL MENU OPTIONS / RESET; MORE ABOUT VARIABLES","before":{"V30":600,"V255":1200},"expected":{"V30":0,"V255":1200,"V20":15,"variableCount":256}},
+  "G04":{"section":"FCL / DESTROY; OBJECT MENU / ATTRIBUTES","actions":["DESTROY (2)","VIS (2)"],"expectedBeforeReset":"destroyed","expectedAfterReset":"visible"},
+  "G05":{"section":"FCL / GOTO","command":"GOTO (1,2)","entrance":{"id":1,"position":[4000,300,4000],"rotation":[0,90,0]},"expected":{"area":2,"position":[4000,300,4000],"rotation":[0,90,0]}},
+  "G06":{"section":"EXAMPLES / TO USE A LOOP; THE ANIMATION CONTROLLER","program":"INCLUDE (2) LOOP (20) MOVE (40,0,0) AGAIN","startPosition":[1000,200,1000],"expectedPosition":[1800,200,1000],"staticExpectedPosition":[1000,200,1000]},
+  "G07":{"section":"FCL / PRINT; EDIT INSTRUMENT","program":"PRINT (\"FIRST\\NSECOND\",1)","expectedText":"FIRST\nSECOND"},
+  "G08":{"section":"FCL / MODE","cases":[{"input":0,"expected":1},{"input":2,"expected":2},{"input":9,"expected":3}]},
+  "G09":{"section":"INTRODUCTION TO THE EDITOR / FLY1 AND FLY2","pitchDegrees":30,"forwardDistance":100,"expectedFly1VerticalDelta":0,"expectedFly2VerticalDelta":50}
+}

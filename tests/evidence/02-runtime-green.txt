@@ -1,0 +1,33 @@
+
+> freescape-studio@0.1.0 test
+> node --test --test-isolation=none tests/*.test.js
+
+✔ G01: new areas contain cuboid 1 and entrance 1 (0.843487ms)
+✔ G02: copy preserves conditions and has a new identity (0.310443ms)
+✔ group copy remaps members and transforms each child once (1.004579ms)
+✔ history atomically undoes and redoes a world edit (0.521202ms)
+✔ world round trips and rejects invalid input without mutating caller (1.080725ms)
+✔ invalid transforms are atomic (0.184698ms)
+✔ G03: reset clears user variables and preserves V255 (0.406305ms)
+✔ G04: destroyed object cannot be made visible until reset (0.915739ms)
+✔ G05: GOTO selects entrance position and rotation and stops the old area script (0.431123ms)
+✔ G06: loop moves moveable objects 20 times and ignores static objects (1.066163ms)
+✔ G07: PRINT only updates a text instrument, and translates newline escapes (0.38329ms)
+✔ G08: mode clamps to supported player vehicles (0.282549ms)
+✔ FCL arithmetic uses value first, destination second; branches nest and aliases compile (0.471715ms)
+✔ initial general condition runs once; general and current area conditions run per frame (0.456073ms)
+✔ WAIT resumes next frame; DELAY freezes other scripts for 50hz duration (0.403859ms)
+✔ object activation is range limited, event flags are transient and execute preserves caller (0.381274ms)
+✔ animator WAITTRIG blocks, consumes trigger and resumes; STOP preserves state (0.343195ms)
+✔ sound scheduling and timer flag use simulation frames (0.614075ms)
+✔ compiler reports unknown commands, malformed blocks, invalid vars and literal range (0.302398ms)
+✔ execution budget terminates recursive EXECUTE instead of hanging (6.058631ms)
+✔ game save/load restores active state, variables, positions and animator continuations (0.670728ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29.149741

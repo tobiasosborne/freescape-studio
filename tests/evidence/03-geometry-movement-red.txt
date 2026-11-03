@@ -1,0 +1,63 @@
+
+> freescape-studio@0.1.0 test
+> node --test --test-isolation=none tests/*.test.js
+
+✖ tests/geometry.test.js (1.200787ms)
+✔ G01: new areas contain cuboid 1 and entrance 1 (0.426259ms)
+✔ G02: copy preserves conditions and has a new identity (0.244125ms)
+✔ group copy remaps members and transforms each child once (0.398364ms)
+✔ history atomically undoes and redoes a world edit (0.418519ms)
+✔ world round trips and rejects invalid input without mutating caller (1.060579ms)
+✔ invalid transforms are atomic (0.15494ms)
+✖ tests/movement.test.js (0.036194ms)
+✔ G03: reset clears user variables and preserves V255 (0.415745ms)
+✔ G04: destroyed object cannot be made visible until reset (1.009102ms)
+✔ G05: GOTO selects entrance position and rotation and stops the old area script (0.446203ms)
+✔ G06: loop moves moveable objects 20 times and ignores static objects (1.185484ms)
+✔ G07: PRINT only updates a text instrument, and translates newline escapes (0.362522ms)
+✔ G08: mode clamps to supported player vehicles (0.204893ms)
+✔ FCL arithmetic uses value first, destination second; branches nest and aliases compile (0.399045ms)
+✔ initial general condition runs once; general and current area conditions run per frame (0.461822ms)
+✔ WAIT resumes next frame; DELAY freezes other scripts for 50hz duration (0.35055ms)
+✔ object activation is range limited, event flags are transient and execute preserves caller (0.64362ms)
+✔ animator WAITTRIG blocks, consumes trigger and resumes; STOP preserves state (0.321761ms)
+✔ sound scheduling and timer flag use simulation frames (0.314891ms)
+✔ compiler reports unknown commands, malformed blocks, invalid vars and literal range (0.288777ms)
+✔ execution budget terminates recursive EXECUTE instead of hanging (6.653572ms)
+✔ game save/load restores active state, variables, positions and animator continuations (0.746754ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 21
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 30.972051
+
+✖ failing tests:
+
+✖ tests/geometry.test.js (1.200787ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/3d-construction-kit/src/geometry.js' imported from /home/tobias/Projects/3d-construction-kit/tests/geometry.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+      at moduleResolve (node:internal/modules/esm/resolve:864:10)
+      at defaultResolve (node:internal/modules/esm/resolve:990:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+      at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+      at #link (node:internal/modules/esm/module_job:208:49) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///home/tobias/Projects/3d-construction-kit/src/geometry.js'
+  }
+
+✖ tests/movement.test.js (0.036194ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/3d-construction-kit/src/movement.js' imported from /home/tobias/Projects/3d-construction-kit/tests/movement.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+      at moduleResolve (node:internal/modules/esm/resolve:864:10)
+      at defaultResolve (node:internal/modules/esm/resolve:990:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+      at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+      at #link (node:internal/modules/esm/module_job:208:49) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///home/tobias/Projects/3d-construction-kit/src/movement.js'
+  }

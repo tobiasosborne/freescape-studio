@@ -1,0 +1,25 @@
+✔ player handles Shift movement, a missed shot and custom border controls (58.00921ms)
+✔ player supports separate fly selection, walk/fly toggle and centre cursor toggle (7.776891ms)
+✔ a mouse miss does not fall back to shooting the object under the centre cursor (7.622801ms)
+✖ mouse button and logical-screen coordinates populate V16, V17 and V18 (5.443078ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 513.860345
+
+✖ failing tests:
+
+test at tests/player.test.js:171:1
+✖ mouse button and logical-screen coordinates populate V16, V17 and V18 (5.443078ms)
+  TypeError: p.pointer is not a function
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/player.test.js:171:675)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)

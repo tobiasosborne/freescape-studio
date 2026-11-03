@@ -1,0 +1,17 @@
+✔ G09: FLY1 is horizontal, FLY2 follows pitch (6.696096ms)
+✔ swept movement stops at a solid wall and emits collision; invisible objects allow travel (5.179367ms)
+✔ walk climbs low steps, stands on real pyramid surface and records unsafe falls (29.248439ms)
+✔ sensors respect range, directional mask, rate, effect and line of sight (2.204796ms)
+✔ camera-style free movement bypasses area bounds and solid geometry (0.587287ms)
+✔ colliding with an included global object dispatches its condition in the global area (1.576273ms)
+✔ including a global group adds its complete geometry to collision and line of sight (1.067231ms)
+✔ flying collision protects the complete player body when descending onto a platform (0.873085ms)
+✔ flying collision detects a thin obstacle between the feet and head (1.247753ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.335816

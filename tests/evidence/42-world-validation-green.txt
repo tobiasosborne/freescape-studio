@@ -1,0 +1,32 @@
+✔ system 50 Hz counter can be reset from FCL and then advances independently (2.081692ms)
+✔ unread SHOT flag remains available on a later activation until consumed (0.554001ms)
+✔ global object interactions update included global object state without ID collisions (0.334004ms)
+✔ border zones require a defined action key and obey mouse button masks and screen coordinates (0.156339ms)
+✔ malformed projects reject non-finite defaults, unsafe assets and duplicate entrances (1.072042ms)
+✔ group stretching scales member positions and sizes from group origin (0.452899ms)
+✔ turning a group rotates members around its common centre (0.522413ms)
+✔ G01: new areas contain cuboid 1 and entrance 1 (0.104821ms)
+✔ G02: copy preserves conditions and has a new identity (0.200024ms)
+✔ group copy remaps members and transforms each child once (1.429996ms)
+✔ history atomically undoes and redoes a world edit (0.530843ms)
+✔ world round trips and rejects invalid input without mutating caller (1.408364ms)
+✔ invalid transforms are atomic (0.236761ms)
+✔ S1 object files preserve geometry/group but omit names and conditions; load remaps IDs (0.570047ms)
+✔ local library save, load, delete and failure reporting use separate namespaced entries (0.414952ms)
+✔ instruments clamp and scale reversed bars, signed numbers and undefined types (0.099047ms)
+✔ palette spread includes endpoints and quantizes channels to original four-bit RGB (0.164888ms)
+✔ S1 LOAD OBJECT searches upward for space and fails atomically when the area is full (0.317164ms)
+✔ world loading rejects incomplete player/view settings and malformed geometry before the editor uses them (1.328238ms)
+✔ TURN keeps a non-cubic solid size and position equal to its rendered bounds (1.593559ms)
+✔ TURN rotates a facet to an orthogonal plane and keeps the centre fixed (0.487991ms)
+✔ a group TURN updates all non-cubic member bounds and the group enclosure (1.134445ms)
+✔ a TURN that would leave the area fails without changing the object (0.237508ms)
+✔ centre-pivot scaling keeps the centre of a group fixed (0.150392ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 46.949505

@@ -1,0 +1,43 @@
+✔ all geometric primitive families produce finite vertices and expected faces (7.014005ms)
+✔ two-colour face shades preserve both palette entries in a repeating texture (0.696091ms)
+✖ solid cuboid faces point outward, including its upward floor surface (1.076826ms)
+✔ point edits and orthogonal turns are represented in geometry (0.307527ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 34.173824
+
+✖ failing tests:
+
+test at tests/geometry.test.js:11:1
+✖ solid cuboid faces point outward, including its upward floor surface (1.076826ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   -1,
+  -   1,
+      0,
+      0
+    ]
+  
+      at file:///home/tobias/Projects/3d-construction-kit/tests/geometry.test.js:11:289
+      at Array.forEach (<anonymous>)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/geometry.test.js:11:262)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

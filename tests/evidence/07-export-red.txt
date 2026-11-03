@@ -1,0 +1,65 @@
+
+> freescape-studio@0.1.0 test
+> node --test --test-isolation=none tests/*.test.js
+
+✖ tests/export.test.js (0.69398ms)
+✔ all geometric primitive families produce finite vertices and expected faces (2.581666ms)
+✔ point edits and orthogonal turns are represented in geometry (0.312935ms)
+✔ G01: new areas contain cuboid 1 and entrance 1 (0.119811ms)
+✔ G02: copy preserves conditions and has a new identity (0.246699ms)
+✔ group copy remaps members and transforms each child once (0.375073ms)
+✔ history atomically undoes and redoes a world edit (0.427306ms)
+✔ world round trips and rejects invalid input without mutating caller (1.10792ms)
+✔ invalid transforms are atomic (0.20225ms)
+✔ G09: FLY1 is horizontal, FLY2 follows pitch (1.81128ms)
+✔ swept movement stops at a solid wall and emits collision; invisible objects allow travel (2.431542ms)
+✔ walk climbs low steps, stands on real pyramid surface and records unsafe falls (6.142863ms)
+✔ sensors respect range, directional mask, rate, effect and line of sight (1.273318ms)
+✔ camera-style free movement bypasses area bounds and solid geometry (0.250816ms)
+✔ S1 object files preserve geometry/group but omit names and conditions; load remaps IDs (0.476573ms)
+✔ local library save, load, delete and failure reporting use separate namespaced entries (0.455079ms)
+✔ instruments clamp and scale reversed bars, signed numbers and undefined types (0.100191ms)
+✔ palette spread includes endpoints and quantizes channels to original four-bit RGB (0.159948ms)
+✔ G03: reset clears user variables and preserves V255 (0.275704ms)
+✔ G04: destroyed object cannot be made visible until reset (0.316136ms)
+✔ G05: GOTO selects entrance position and rotation and stops the old area script (0.356223ms)
+✔ G06: loop moves moveable objects 20 times and ignores static objects (1.315827ms)
+✔ G07: PRINT only updates a text instrument, and translates newline escapes (0.383763ms)
+✔ G08: mode clamps to supported player vehicles (0.22532ms)
+✔ FCL arithmetic uses value first, destination second; branches nest and aliases compile (0.294138ms)
+✔ initial general condition runs once; general and current area conditions run per frame (0.387602ms)
+✔ WAIT resumes next frame; DELAY freezes other scripts for 50hz duration (0.322595ms)
+✔ object activation is range limited, event flags are transient and execute preserves caller (0.309488ms)
+✔ animator WAITTRIG blocks, consumes trigger and resumes; STOP preserves state (0.572945ms)
+✔ sound scheduling and timer flag use simulation frames (0.345114ms)
+✔ compiler reports unknown commands, malformed blocks, invalid vars and literal range (0.291778ms)
+✔ execution budget terminates recursive EXECUTE instead of hanging (7.076786ms)
+✔ game save/load restores active state, variables, positions and animator continuations (1.044893ms)
+✔ S1 VAR>?/VAR<? command reference uses P1 compared with P2, including aliases (0.325085ms)
+✔ S1 SHOT? and COLLIDED? consume their own event flag on first check (0.57425ms)
+✔ S1 REMOVE detaches a member from animator movement (0.570029ms)
+✔ S1 SETVAR literal destination is a no-op (0.19115ms)
+✔ S1 animator enclosure collides with an obstacle between two members (0.349785ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 37
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 74.191752
+
+✖ failing tests:
+
+✖ tests/export.test.js (0.69398ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/3d-construction-kit/src/export.js' imported from /home/tobias/Projects/3d-construction-kit/tests/export.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+      at moduleResolve (node:internal/modules/esm/resolve:864:10)
+      at defaultResolve (node:internal/modules/esm/resolve:990:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+      at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+      at #link (node:internal/modules/esm/module_job:208:49) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///home/tobias/Projects/3d-construction-kit/src/export.js'
+  }

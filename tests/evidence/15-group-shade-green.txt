@@ -1,0 +1,20 @@
+✔ system 50 Hz counter can be reset from FCL and then advances independently (1.928907ms)
+✔ unread SHOT flag remains available on a later activation until consumed (0.532625ms)
+✔ global object interactions update included global object state without ID collisions (0.301233ms)
+✔ border zones require a defined action key and obey mouse button masks and screen coordinates (0.156624ms)
+✔ malformed projects reject non-finite defaults, unsafe assets and duplicate entrances (1.121604ms)
+✔ group stretching scales member positions and sizes from group origin (0.414293ms)
+✔ turning a group rotates members around its common centre (0.307698ms)
+✔ editor wires real model through add, inspector, undo/redo, grouping, save and play (384.084245ms)
+✔ editor script diagnostics reject bad source and apply valid FCL (165.031046ms)
+✔ editor creates and deletes areas and edits instruments, palettes and controls (205.04659ms)
+✔ editor exposes independent camera navigation and border-zone form controls (132.063636ms)
+✔ face shade controls and group inspector transforms update saved world geometry (194.739013ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1354.142887

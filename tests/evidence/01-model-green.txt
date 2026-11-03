@@ -1,0 +1,18 @@
+
+> freescape-studio@0.1.0 test
+> node --test --test-isolation=none tests/*.test.js
+
+✔ G01: new areas contain cuboid 1 and entrance 1 (0.767248ms)
+✔ G02: copy preserves conditions and has a new identity (0.263914ms)
+✔ group copy remaps members and transforms each child once (0.404388ms)
+✔ history atomically undoes and redoes a world edit (0.431669ms)
+✔ world round trips and rejects invalid input without mutating caller (1.044691ms)
+✔ invalid transforms are atomic (0.176467ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15.334991

@@ -1,0 +1,11 @@
+✔ all geometric primitive families produce finite vertices and expected faces (3.46854ms)
+✔ two-colour face shades preserve both palette entries in a repeating texture (0.713119ms)
+✔ point edits and orthogonal turns are represented in geometry (0.320794ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31.540907

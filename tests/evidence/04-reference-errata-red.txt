@@ -1,0 +1,167 @@
+
+> freescape-studio@0.1.0 test
+> node --test --test-isolation=none tests/*.test.js
+
+✔ all geometric primitive families produce finite vertices and expected faces (6.81513ms)
+✔ point edits and orthogonal turns are represented in geometry (0.286625ms)
+✔ G01: new areas contain cuboid 1 and entrance 1 (0.123636ms)
+✔ G02: copy preserves conditions and has a new identity (0.242879ms)
+✔ group copy remaps members and transforms each child once (0.336479ms)
+✔ history atomically undoes and redoes a world edit (0.50802ms)
+✔ world round trips and rejects invalid input without mutating caller (1.231ms)
+✔ invalid transforms are atomic (0.205103ms)
+✔ G09: FLY1 is horizontal, FLY2 follows pitch (1.98868ms)
+✔ swept movement stops at a solid wall and emits collision; invisible objects allow travel (2.662485ms)
+✔ walk climbs low steps, stands on real pyramid surface and records unsafe falls (6.067076ms)
+✔ sensors respect range, directional mask, rate, effect and line of sight (0.816821ms)
+✔ camera-style free movement bypasses area bounds and solid geometry (0.215253ms)
+✔ G03: reset clears user variables and preserves V255 (0.228463ms)
+✔ G04: destroyed object cannot be made visible until reset (0.304586ms)
+✔ G05: GOTO selects entrance position and rotation and stops the old area script (0.349925ms)
+✔ G06: loop moves moveable objects 20 times and ignores static objects (0.833688ms)
+✔ G07: PRINT only updates a text instrument, and translates newline escapes (0.352904ms)
+✔ G08: mode clamps to supported player vehicles (0.185246ms)
+✖ FCL arithmetic uses value first, destination second; branches nest and aliases compile (0.677331ms)
+✔ initial general condition runs once; general and current area conditions run per frame (0.415655ms)
+✔ WAIT resumes next frame; DELAY freezes other scripts for 50hz duration (0.353133ms)
+✔ object activation is range limited, event flags are transient and execute preserves caller (0.324846ms)
+✔ animator WAITTRIG blocks, consumes trigger and resumes; STOP preserves state (0.350383ms)
+✔ sound scheduling and timer flag use simulation frames (0.356263ms)
+✔ compiler reports unknown commands, malformed blocks, invalid vars and literal range (0.304378ms)
+✔ execution budget terminates recursive EXECUTE instead of hanging (6.770072ms)
+✔ game save/load restores active state, variables, positions and animator continuations (0.770709ms)
+✖ S1 VAR>?/VAR<? command reference uses P1 compared with P2, including aliases (0.245158ms)
+✖ S1 SHOT? and COLLIDED? consume their own event flag on first check (0.50231ms)
+✖ S1 REMOVE detaches a member from animator movement (0.325996ms)
+✖ S1 SETVAR literal destination is a no-op (0.257583ms)
+✖ S1 animator enclosure collides with an obstacle between two members (12.783837ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 27
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 78.861316
+
+✖ failing tests:
+
+test at tests/runtime.test.js:26:1
+✖ FCL arithmetic uses value first, destination second; branches nest and aliases compile (0.677331ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3 !== 2
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/runtime.test.js:27:234)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/runtime.test.js:59:1
+✖ S1 VAR>?/VAR<? command reference uses P1 compared with P2, including aliases (0.245158ms)
+  Error: Line 1: Unknown command V<?
+      at fail (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:15:39)
+      at call (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:16:168)
+      at compile (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:26:47)
+      at runner (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:34:42)
+      at Runtime.run (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:50:37)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/runtime.test.js:60:24)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+
+test at tests/runtime.test.js:62:1
+✖ S1 SHOT? and COLLIDED? consume their own event flag on first check (0.50231ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/runtime.test.js:63:246)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/runtime.test.js:65:1
+✖ S1 REMOVE detaches a member from animator movement (0.325996ms)
+  Error: Line 1: Unknown command REMOVE
+      at fail (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:15:39)
+      at call (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:16:168)
+      at compile (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:30:16)
+      at runner (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:34:42)
+      at Runtime.animation (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:49:195)
+      at Runtime.advance (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:83:36)
+      at Runtime.run (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:50:111)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/runtime.test.js:66:142)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+
+test at tests/runtime.test.js:68:1
+✖ S1 SETVAR literal destination is a no-op (0.257583ms)
+  AssertionError [ERR_ASSERTION]: Got unwanted exception.
+  Actual message: "Line 1: SETVAR destination must be a variable"
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/runtime.test.js:68:81)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: Error: Line 1: SETVAR destination must be a variable
+        at fail (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:15:39)
+        at call (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:20:52)
+        at compile (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:30:16)
+        at runner (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:34:42)
+        at Runtime.run (file:///home/tobias/Projects/3d-construction-kit/src/runtime.js:50:37)
+        at file:///home/tobias/Projects/3d-construction-kit/tests/runtime.test.js:68:100
+        at getActual (node:assert:611:5)
+        at strict.doesNotThrow (node:assert:779:32)
+        at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/runtime.test.js:68:81)
+        at Test.runInAsyncScope (node:async_hooks:214:14),
+    expected: undefined,
+    operator: 'doesNotThrow',
+    diff: 'simple'
+  }
+
+test at tests/runtime.test.js:69:1
+✖ S1 animator enclosure collides with an obstacle between two members (12.783837ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(r.object(2).position[2]<=1100)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/runtime.test.js:72:142)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

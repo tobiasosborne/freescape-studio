@@ -1,0 +1,14 @@
+✔ TURN keeps a non-cubic solid size and position equal to its rendered bounds (3.348674ms)
+✔ TURN rotates a facet to an orthogonal plane and keeps the centre fixed (0.728277ms)
+✔ a group TURN updates all non-cubic member bounds and the group enclosure (1.126976ms)
+✔ a TURN that would leave the area fails without changing the object (0.535607ms)
+✔ centre-pivot scaling keeps the centre of a group fixed (0.257104ms)
+✔ Three.js viewport installs TransformControls helper, updates picking and disposes resources (64.191955ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 354.260386

@@ -1,0 +1,29 @@
+Built dist/index.html (1163 kB), self-contained; no CDN or server required.
+✖ production editor is one offline HTML artifact with embedded CSS and runtime (146.173909ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 153.220522
+
+✖ failing tests:
+
+test at tests/build.test.js:2:1
+✖ production editor is one offline HTML artifact with embedded CSS and runtime (146.173909ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(html.includes('.workspace'))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/build.test.js:2:227)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

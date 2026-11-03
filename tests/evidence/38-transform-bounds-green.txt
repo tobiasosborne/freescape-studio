@@ -1,0 +1,30 @@
+✔ system 50 Hz counter can be reset from FCL and then advances independently (1.95828ms)
+✔ unread SHOT flag remains available on a later activation until consumed (0.550926ms)
+✔ global object interactions update included global object state without ID collisions (0.329619ms)
+✔ border zones require a defined action key and obey mouse button masks and screen coordinates (0.160031ms)
+✔ malformed projects reject non-finite defaults, unsafe assets and duplicate entrances (1.004578ms)
+✔ group stretching scales member positions and sizes from group origin (0.410506ms)
+✔ turning a group rotates members around its common centre (0.521177ms)
+✔ all geometric primitive families produce finite vertices and expected faces (2.332745ms)
+✔ two-colour face shades preserve both palette entries in a repeating texture (0.705272ms)
+✔ solid cuboid faces point outward, including its upward floor surface (0.601326ms)
+✔ point edits and orthogonal turns are represented in geometry (0.280587ms)
+✔ G01: new areas contain cuboid 1 and entrance 1 (0.093838ms)
+✔ G02: copy preserves conditions and has a new identity (0.174276ms)
+✔ group copy remaps members and transforms each child once (0.628952ms)
+✔ history atomically undoes and redoes a world edit (0.318084ms)
+✔ world round trips and rejects invalid input without mutating caller (0.539363ms)
+✔ invalid transforms are atomic (0.140465ms)
+✔ TURN keeps a non-cubic solid size and position equal to its rendered bounds (0.405904ms)
+✔ TURN rotates a facet to an orthogonal plane and keeps the centre fixed (0.246631ms)
+✔ a group TURN updates all non-cubic member bounds and the group enclosure (0.547266ms)
+✔ a TURN that would leave the area fails without changing the object (0.19075ms)
+✔ centre-pivot scaling keeps the centre of a group fixed (0.144336ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 45.060636

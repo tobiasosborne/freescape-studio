@@ -1,0 +1,11 @@
+✔ player handles Shift movement, a missed shot and custom border controls (46.397441ms)
+✔ player supports separate fly selection, walk/fly toggle and centre cursor toggle (7.282822ms)
+✔ a mouse miss does not fall back to shooting the object under the centre cursor (6.460925ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 512.122897

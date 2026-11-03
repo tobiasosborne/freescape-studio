@@ -1,0 +1,79 @@
+✔ G09: FLY1 is horizontal, FLY2 follows pitch (3.629436ms)
+✔ swept movement stops at a solid wall and emits collision; invisible objects allow travel (3.256603ms)
+✔ walk climbs low steps, stands on real pyramid surface and records unsafe falls (6.733293ms)
+✔ sensors respect range, directional mask, rate, effect and line of sight (1.127374ms)
+✔ camera-style free movement bypasses area bounds and solid geometry (0.274291ms)
+✖ colliding with an included global object dispatches its condition in the global area (0.821921ms)
+✔ G03: reset clears user variables and preserves V255 (0.302538ms)
+✔ G04: destroyed object cannot be made visible until reset (0.324305ms)
+✔ G05: GOTO selects entrance position and rotation and stops the old area script (0.743555ms)
+✔ G06: loop moves moveable objects 20 times and ignores static objects (1.140038ms)
+✔ G07: PRINT only updates a text instrument, and translates newline escapes (0.382126ms)
+✔ G08: mode clamps to supported player vehicles (0.196019ms)
+✔ FCL arithmetic uses value first, destination second; branches nest and aliases compile (0.269253ms)
+✔ initial general condition runs once; general and current area conditions run per frame (0.401843ms)
+✔ WAIT resumes next frame; DELAY freezes other scripts for 50hz duration (0.316853ms)
+✔ object activation is range limited, event flags are transient and execute preserves caller (0.401235ms)
+✔ animator WAITTRIG blocks, consumes trigger and resumes; STOP preserves state (0.583732ms)
+✔ sound scheduling and timer flag use simulation frames (0.337635ms)
+✔ compiler reports unknown commands, malformed blocks, invalid vars and literal range (0.426239ms)
+✔ execution budget terminates recursive EXECUTE instead of hanging (5.436201ms)
+✔ game save/load restores active state, variables, positions and animator continuations (1.133479ms)
+✔ S1 VAR>?/VAR<? command reference uses P1 compared with P2, including aliases (0.220682ms)
+✔ S1 SHOT? and COLLIDED? consume their own event flag on first check (0.566097ms)
+✔ S1 REMOVE detaches a member from animator movement (0.328593ms)
+✔ S1 SETVAR literal destination is a no-op (0.179747ms)
+✔ S1 animator enclosure collides with an obstacle between two members (0.313352ms)
+✖ ENDGAME stops the old frame immediately after restoring the world (0.308505ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 25
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 60.307094
+
+✖ failing tests:
+
+test at tests/movement.test.js:93:1
+✖ colliding with an included global object dispatches its condition in the global area (0.821921ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/movement.test.js:93:374)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/runtime.test.js:255:1
+✖ ENDGAME stops the old frame immediately after restoring the world (0.308505ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  99 !== 0
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/runtime.test.js:255:211)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 99,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

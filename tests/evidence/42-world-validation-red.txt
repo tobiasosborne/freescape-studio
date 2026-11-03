@@ -1,0 +1,34 @@
+✔ S1 object files preserve geometry/group but omit names and conditions; load remaps IDs (1.387609ms)
+✔ local library save, load, delete and failure reporting use separate namespaced entries (1.209495ms)
+✔ instruments clamp and scale reversed bars, signed numbers and undefined types (0.120251ms)
+✔ palette spread includes endpoints and quantizes channels to original four-bit RGB (0.180448ms)
+✔ S1 LOAD OBJECT searches upward for space and fails atomically when the area is full (0.370587ms)
+✖ world loading rejects incomplete player/view settings and malformed geometry before the editor uses them (0.535327ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13.726376
+
+✖ failing tests:
+
+test at tests/persistence.test.js:93:1
+✖ world loading rejects incomplete player/view settings and malformed geometry before the editor uses them (0.535327ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/persistence.test.js:94:435)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /invalid|missing|bounds/i,
+    operator: 'throws',
+    diff: 'simple'
+  }

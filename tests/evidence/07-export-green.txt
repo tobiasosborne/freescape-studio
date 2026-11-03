@@ -1,0 +1,50 @@
+
+> freescape-studio@0.1.0 test
+> node --test --test-isolation=none tests/*.test.js
+
+✔ standalone embeds world and runner safely with no network dependency (1.106594ms)
+✔ all geometric primitive families produce finite vertices and expected faces (2.511464ms)
+✔ point edits and orthogonal turns are represented in geometry (0.291401ms)
+✔ G01: new areas contain cuboid 1 and entrance 1 (0.14162ms)
+✔ G02: copy preserves conditions and has a new identity (0.289035ms)
+✔ group copy remaps members and transforms each child once (0.389456ms)
+✔ history atomically undoes and redoes a world edit (0.454959ms)
+✔ world round trips and rejects invalid input without mutating caller (1.323357ms)
+✔ invalid transforms are atomic (0.223593ms)
+✔ G09: FLY1 is horizontal, FLY2 follows pitch (1.846561ms)
+✔ swept movement stops at a solid wall and emits collision; invisible objects allow travel (2.205167ms)
+✔ walk climbs low steps, stands on real pyramid surface and records unsafe falls (6.223185ms)
+✔ sensors respect range, directional mask, rate, effect and line of sight (0.858176ms)
+✔ camera-style free movement bypasses area bounds and solid geometry (0.215505ms)
+✔ S1 object files preserve geometry/group but omit names and conditions; load remaps IDs (0.440831ms)
+✔ local library save, load, delete and failure reporting use separate namespaced entries (0.37047ms)
+✔ instruments clamp and scale reversed bars, signed numbers and undefined types (0.090135ms)
+✔ palette spread includes endpoints and quantizes channels to original four-bit RGB (0.171674ms)
+✔ G03: reset clears user variables and preserves V255 (0.257884ms)
+✔ G04: destroyed object cannot be made visible until reset (0.279356ms)
+✔ G05: GOTO selects entrance position and rotation and stops the old area script (0.334551ms)
+✔ G06: loop moves moveable objects 20 times and ignores static objects (1.157766ms)
+✔ G07: PRINT only updates a text instrument, and translates newline escapes (0.344646ms)
+✔ G08: mode clamps to supported player vehicles (0.192099ms)
+✔ FCL arithmetic uses value first, destination second; branches nest and aliases compile (0.295766ms)
+✔ initial general condition runs once; general and current area conditions run per frame (0.566934ms)
+✔ WAIT resumes next frame; DELAY freezes other scripts for 50hz duration (0.358523ms)
+✔ object activation is range limited, event flags are transient and execute preserves caller (0.422612ms)
+✔ animator WAITTRIG blocks, consumes trigger and resumes; STOP preserves state (0.342175ms)
+✔ sound scheduling and timer flag use simulation frames (0.331608ms)
+✔ compiler reports unknown commands, malformed blocks, invalid vars and literal range (0.311706ms)
+✔ execution budget terminates recursive EXECUTE instead of hanging (6.655748ms)
+✔ game save/load restores active state, variables, positions and animator continuations (1.000485ms)
+✔ S1 VAR>?/VAR<? command reference uses P1 compared with P2, including aliases (0.286645ms)
+✔ S1 SHOT? and COLLIDED? consume their own event flag on first check (0.609844ms)
+✔ S1 REMOVE detaches a member from animator movement (0.347501ms)
+✔ S1 SETVAR literal destination is a no-op (0.192096ms)
+✔ S1 animator enclosure collides with an obstacle between two members (0.346079ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 72.505395

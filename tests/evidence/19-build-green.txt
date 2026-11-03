@@ -1,0 +1,10 @@
+Built dist/index.html (1181 kB), self-contained; no CDN or server required.
+✔ production editor is one offline HTML artifact with embedded CSS and runtime (154.961937ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 162.372674

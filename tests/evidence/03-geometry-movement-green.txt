@@ -1,0 +1,40 @@
+
+> freescape-studio@0.1.0 test
+> node --test --test-isolation=none tests/*.test.js
+
+✔ all geometric primitive families produce finite vertices and expected faces (12.201857ms)
+✔ point edits and orthogonal turns are represented in geometry (0.299927ms)
+✔ G01: new areas contain cuboid 1 and entrance 1 (0.110736ms)
+✔ G02: copy preserves conditions and has a new identity (0.235599ms)
+✔ group copy remaps members and transforms each child once (0.352105ms)
+✔ history atomically undoes and redoes a world edit (0.392887ms)
+✔ world round trips and rejects invalid input without mutating caller (1.158605ms)
+✔ invalid transforms are atomic (0.1872ms)
+✔ G09: FLY1 is horizontal, FLY2 follows pitch (1.736525ms)
+✔ swept movement stops at a solid wall and emits collision; invisible objects allow travel (3.415388ms)
+✔ walk climbs low steps, stands on real pyramid surface and records unsafe falls (6.491958ms)
+✔ sensors respect range, directional mask, rate, effect and line of sight (0.832875ms)
+✔ camera-style free movement bypasses area bounds and solid geometry (0.204268ms)
+✔ G03: reset clears user variables and preserves V255 (0.253031ms)
+✔ G04: destroyed object cannot be made visible until reset (0.324504ms)
+✔ G05: GOTO selects entrance position and rotation and stops the old area script (0.305435ms)
+✔ G06: loop moves moveable objects 20 times and ignores static objects (0.792285ms)
+✔ G07: PRINT only updates a text instrument, and translates newline escapes (0.35317ms)
+✔ G08: mode clamps to supported player vehicles (0.21185ms)
+✔ FCL arithmetic uses value first, destination second; branches nest and aliases compile (0.312409ms)
+✔ initial general condition runs once; general and current area conditions run per frame (0.388863ms)
+✔ WAIT resumes next frame; DELAY freezes other scripts for 50hz duration (0.308809ms)
+✔ object activation is range limited, event flags are transient and execute preserves caller (0.312837ms)
+✔ animator WAITTRIG blocks, consumes trigger and resumes; STOP preserves state (0.30691ms)
+✔ sound scheduling and timer flag use simulation frames (0.334398ms)
+✔ compiler reports unknown commands, malformed blocks, invalid vars and literal range (0.545671ms)
+✔ execution budget terminates recursive EXECUTE instead of hanging (6.400635ms)
+✔ game save/load restores active state, variables, positions and animator continuations (0.711742ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 69.520387

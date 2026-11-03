@@ -1,0 +1,58 @@
+✔ system 50 Hz counter can be reset from FCL and then advances independently (1.913967ms)
+✔ unread SHOT flag remains available on a later activation until consumed (0.542177ms)
+✔ global object interactions update included global object state without ID collisions (0.304358ms)
+✔ border zones require a defined action key and obey mouse button masks and screen coordinates (0.165357ms)
+✔ malformed projects reject non-finite defaults, unsafe assets and duplicate entrances (0.992191ms)
+✔ group stretching scales member positions and sizes from group origin (0.343257ms)
+✖ turning a group rotates members around its common centre (2.706941ms)
+✔ editor wires real model through add, inspector, undo/redo, grouping, save and play (362.427501ms)
+✔ editor script diagnostics reject bad source and apply valid FCL (172.865058ms)
+✔ editor creates and deletes areas and edits instruments, palettes and controls (216.723563ms)
+✔ editor exposes independent camera navigation and border-zone form controls (151.018322ms)
+✖ face shade controls and group inspector transforms update saved world geometry (136.72505ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 10
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1305.298853
+
+✖ failing tests:
+
+test at tests/completeness.test.js:8:1
+✖ turning a group rotates members around its common centre (2.706941ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.abs(x.position[0]-y.position[0])<.001)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/completeness.test.js:8:342)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/editor.test.js:33:1
+✖ face shade controls and group inspector transforms update saved world geometry (136.72505ms)
+  AssertionError [ERR_ASSERTION]: #shade-enabled
+      at Object.change (file:///home/tobias/Projects/3d-construction-kit/tests/editor.test.js:10:83)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/3d-construction-kit/tests/editor.test.js:34:63)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
