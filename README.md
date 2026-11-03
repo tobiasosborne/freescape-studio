@@ -4,7 +4,30 @@ A Three.js reimagining of the **1991 16-bit 3D Construction Kit**. Build geometr
 
 The original manual is the baseline. [Specification](docs/SPEC.md), [source register](research/sources.json), [source decisions](research/errata.md), [independent semantic goldens](tests/goldens/manual-behavior.json), and [verification status](docs/STATUS.md) are included.
 
-## Run
+## Use it (no install)
+
+The whole app is **one HTML file**. It needs no installer, no server and no internet connection.
+
+**On Windows 10/11:** download `Freescape-Studio.html` (or the zip from the Releases page, then right-click → *Extract All*). Double-click the file and it opens in Microsoft Edge. If Windows asks which app to use, pick Edge.
+
+- Work is autosaved inside the browser on that computer. Use **Save → Download JSON** to keep a copy or move it to another computer.
+- **Export** creates a separate, single-file *player* for your world. Send that file to friends and they double-click it to play.
+- Any current Edge, Chrome or Firefox works (WebGL 2 is required, and every PC from the last ~10 years has it).
+
+**Online:** the GitHub Pages copy runs in the browser from a link. In Edge or Chrome, the *Install* icon in the address bar (or ⋯ → *Apps* → *Install this site as an app*) adds it to the Start menu, and it then works offline.
+
+### Sharing it
+
+| Route | How | Notes |
+|---|---|---|
+| Email | Attach `release/Freescape-Studio-v*.zip` (≈330 kB) | Zipped HTML gets past mail filters that strip `.html` attachments. Contains a START HERE note. |
+| Link | GitHub Pages URL | Nothing to download. Installable as an app. |
+| GitHub Release | Tag `v*` and push | CI attaches the HTML and the zip to the release. |
+
+Build the shareable files locally with `npm run package`, which writes to `release/`.
+
+## Develop
+
 
 Use Node.js 24 or newer.
 
@@ -44,7 +67,7 @@ npm run test:browser
 
 The Playwright suite is prepared to exercise the production file, inspect rendered pixels, reopen saved worlds, round-trip JSON, test play/game saves, open the exported player offline, and capture desktop/narrow screenshots. It records each completed group and the launch/test result in `test-results/browser-report.json`. Set `PLAYWRIGHT_CHROMIUM_EXECUTABLE` to an installed Chromium executable if Playwright's browser is absent. `BASE_URL` optionally selects an existing dev server.
 
-**Current verification limit:** this task environment denies server socket operations and Chromium launch IPC. The real-browser suite cannot yet execute here; no WebGL screenshot goldens or browser pass are claimed. The software SVG scene preview is geometry inspection, not a browser screenshot. See [status](docs/STATUS.md) and the retained red/green evidence in `tests/evidence/`.
+**Browser verification:** since 2026-11-03 the Playwright suite runs and passes (8/8 groups, Chromium with SwiftShader WebGL), locally and in CI. Screenshots land in `test-results/`. The software SVG scene preview (`scripts/render-scene.mjs`) is geometry inspection only.
 
 ## Compatibility
 

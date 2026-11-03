@@ -1,6 +1,6 @@
 {
   "name": "freescape-studio",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,7 +8,8 @@
     "build": "node scripts/build.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --test --test-isolation=none tests/*.test.js",
-    "test:browser": "node tests/browser.mjs"
+    "test:browser": "node tests/browser.mjs",
+    "package": "node scripts/build.mjs && node scripts/package.mjs"
   },
   "dependencies": {
     "three": "0.169.0"

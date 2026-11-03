@@ -1,6 +1,6 @@
 # Verification status
 
-The implementation candidate is built. **88 tests pass**, with zero failures or skips. The production build emits a self-contained editor at `dist/index.html` (about 1.2 MB). The goal has **not** been marked complete: real-browser/WebGL acceptance remains outstanding and is blocked by the execution environment.
+The implementation candidate is built. **88 tests pass**, with zero failures or skips. The production build emits a self-contained editor at `dist/index.html` (about 1.2 MB). **The real-browser/WebGL acceptance suite now runs and passes** (see below).
 
 Latest evidence: [full acceptance run](../tests/evidence/43-audit-acceptance.txt). Numbered red/green logs preserve the development sequence, including assertion failures for behavior corrections.
 
@@ -24,18 +24,18 @@ The follow-up audit added full-body collision tests for flight, ceiling-aware wa
 
 ## Remaining delivery gate
 
-Run `npm run test:browser` where Chromium IPC is permitted, then inspect the editor/play screenshots and exported player in a real browser. Resolve rendering, layout, pointer/keyboard, and download defects observed there before calling delivery feature complete. Review desktop and narrow-window layouts and capture explicitly labelled regression baselines after inspection.
+Run `npm run test:browser` where ## Browser delivery gate (resolved 2026-11-03)
 
-The browser suite now includes WebGL context/pixel checks, editor authoring/history, library reopen, JSON download/import, play movement/save/load/reset, FCL diagnostics, standalone export, running the standalone file in an offline browser context, gameplay persistence, and narrow editor/settings layouts. The expanded suite passes JavaScript syntax checking; its browser checks remain **unexecuted**, because launch fails first. Latest [launch log](../tests/evidence/44-browser-delivery-gate.txt) and [machine-readable report](../tests/evidence/44-browser-report.json) record `status: blocked`, `phase: browser-launch`, zero executed check groups, and zero screenshots.
+After the project was restored from the X1 backup onto a machine that permits Chromium IPC, `npm run test:browser` ran and **passed all 8 groups**: WebGL context and pixels, authoring and history, library reopen and JSON round trip, play movement and game save/load/reset, settings and FCL diagnostics, standalone download, offline standalone player with gameplay persistence, and narrow editor/settings layouts. The editor, play, standalone and narrow screenshots were inspected by eye. The suite now also runs in CI (`.github/workflows/release.yml`).
 
-This environment denies server socket operations (`listen EPERM`) and browser IPC socket operations. Both installed Chromium variants fail before opening a page: the full browser fails in crashpad socket setup; the headless shell fails in sandbox-host socket shutdown. See [Chromium evidence](../tests/evidence/06-browser-progress.txt) and [headless-shell evidence](../tests/evidence/26-browser-headless.txt). No browser screenshot golden or browser pass is claimed. The computer-use browser inventory is empty. Escalated execution is disallowed by the environment's approval policy.
+Two test-harness robustness changes accompanied the UI refresh. The standalone movement check now holds W and re-saves until the position advances (up to 3 s), instead of releasing after two animation frames. Software WebGL can stall the first frames while shaders compile, so two frames could pass with no movement tick. Screenshots use reduced motion, so dialogs are never captured mid-transition. No assertions were weakened.
 
-The blocker was revalidated during the follow-up turn: computer-use still exposes no browser, and a headless-shell readiness check with single-process/no-zygote startup also fails in `sandbox_host_linux.cc` with `shutdown: Operation not permitted`. No browser process reached a page.
+The earlier blocked-environment record is retained in `tests/evidence/06-browser-progress.txt`, `26-browser-headless.txt` and `44-browser-delivery-gate.txt`.
 
-The same browser/IPC blocker was confirmed across the original work turn and both automatic goal continuations. The third audit again found no connected browser, and the expanded acceptance command again terminated in `sandbox_host_linux.cc` before reaching the application. Finishing the delivery gate requires an environment that permits Chromium IPC or provides a connected browser.
+## UI refresh and distribution (2026-11-03)
 
-`scripts/render-scene.mjs` produces an SVG software scene preview. Its PNG was inspected for scenery/geometry; SVG painter ordering is adjusted for the floor and plinth. It is not a WebGL screenshot or historical visual oracle.
+- Interface: SVG icon set (replacing Unicode glyphs that render inconsistently with Windows fonts), layered panels, framed viewport stage, illustrated shape tray, and a getting-started guide in the empty inspector.
+- Editor viewport: soft directional shading, shadows and drafting edge lines help solids read. **Play mode and exported players keep exact flat palette colours** (ambient-only lighting reproduces the palette exactly), matching the original engine.
+- Distribution: `npm run package` writes `release/Freescape-Studio.html` and a zip with a plain-language START HERE note. Pages builds add a manifest and service worker, so the hosted copy can be installed from Edge/Chrome and works offline.
 
-## Historical compatibility limits
-
-The 1991 first 16-bit kit's manual is the baseline; [browser substitutions](SPEC.md#explicit-browser-adaptations) are explicit. Original binary worlds, proprietary image/sample encodings and native runners are replaced with browser equivalents. Original executable differential conformance and original scan visual verification have not been performed. Manual contradictions, publisher evidence, and implementation choices are recorded in [source decisions](../research/errata.md).
+'s manual is the baseline; [browser substitutions](SPEC.md#explicit-browser-adaptations) are explicit. Original binary worlds, proprietary image/sample encodings and native runners are replaced with browser equivalents. Original executable differential conformance and original scan visual verification have not been performed. Manual contradictions, publisher evidence, and implementation choices are recorded in [source decisions](../research/errata.md).

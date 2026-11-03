@@ -34,6 +34,7 @@ import {
 } from "./persistence.js";
 import { standaloneHTML } from "./export.js";
 import playerCode from "./player.js?bundle";
+import { icon as svg, kitPiece, brandMark } from "./icons.js";
 
 const $ = (s) => document.querySelector(s),
   esc = (s) =>
@@ -48,18 +49,6 @@ const $ = (s) => document.querySelector(s),
           "'": "&#39;",
         })[c],
     );
-const icon = {
-  cuboid: "◇",
-  pyramid: "△",
-  rectangle: "▱",
-  triangle: "◬",
-  quadrilateral: "⬡",
-  pentagon: "⬠",
-  hexagon: "⬡",
-  line: "╱",
-  sensor: "⌾",
-  group: "▧",
-};
 let initial = demoWorld();
 try {
   const autosave = localStorage.getItem("freescape-studio:autosave");
@@ -154,7 +143,7 @@ function modal(title, body, footer = "", wide = false) {
   closeModal();
   const back = document.createElement("div");
   back.className = "modal-backdrop";
-  back.innerHTML = `<section class="modal ${wide ? "wide" : ""}" role="dialog" aria-modal="true" aria-label="${esc(title)}"><header class="modal-header"><h2>${esc(title)}</h2>${button("×", "close", 'aria-label="Close dialog"')}</header><div class="modal-body">${body}</div>${footer ? `<footer class="modal-footer">${footer}</footer>` : ""}</section>`;
+  back.innerHTML = `<section class="modal ${wide ? "wide" : ""}" role="dialog" aria-modal="true" aria-label="${esc(title)}"><header class="modal-header"><h2>${esc(title)}</h2>${button(svg("close", 18), "close", 'class="icon-btn ghost" aria-label="Close dialog"')}</header><div class="modal-body">${body}</div>${footer ? `<footer class="modal-footer">${footer}</footer>` : ""}</section>`;
   document.body.append(back);
   back.addEventListener("click", (e) => {
     if (e.target === back) closeModal();
@@ -166,7 +155,7 @@ function closeModal() {
 }
 
 $("#app").innerHTML =
-  `<header class="appbar"><div class="brand"><span class="brand-mark">◇</span><div><strong>FREESCAPE</strong><small>3D CONSTRUCTION KIT · STUDIO</small></div></div><div class="project-heading"><strong id="project-name"></strong><small>Build a world. Give it a life.</small></div><span class="save-indicator">Saved on this device</span><div class="actions">${button("⚙", "settings", 'aria-label="World settings" title="World settings"')}${button("↥ Export", "export", 'aria-label="Export playable world"')}${button("Save", "save", 'aria-label="Save world"')}${button("▶ Play world", "play", 'class="primary" aria-label="Play world"')}</div></header>
+  `<header class="appbar"><div class="brand">${brandMark}<div><strong>Freescape <em>Studio</em></strong><small>3D Construction Kit</small></div></div><div class="project-heading"><strong id="project-name"></strong><small>Build a world. Give it a life.</small></div><span class="save-indicator" role="status">Saved on this device</span><div class="actions">${button(svg("help"), "help", 'class="icon-btn" aria-label="Guide and controls" title="Guide & controls"')}${button(svg("settings"), "settings", 'class="icon-btn" aria-label="World settings" title="World settings"')}<span class="divider"></span>${button(`${svg("export")}<span>Export</span>`, "export", 'aria-label="Export playable world" title="Make a standalone playable file"')}${button(`${svg("save")}<span>Save</span>`, "save", 'aria-label="Save world" title="Save or open worlds"')}${button(`${svg("play")}<span>Play world</span>`, "play", 'class="primary play-button" aria-label="Play world"')}</div></header>
 <nav class="menubar" aria-label="Editor menu">${[
     [
       "File",
@@ -226,14 +215,14 @@ $("#app").innerHTML =
       ([title, items]) =>
         `<details><summary>${title}</summary><div class="menu">${items.map(([name, action]) => button(name, action)).join("")}</div></details>`,
     )
-    .join("")}<span class="mono">1991, REIMAGINED IN THREE.JS</span></nav>
-<main class="workspace"><aside class="sidebar"><div class="side-header"><div class="eyebrow">World explorer</div><div class="area-heading"><select id="area-select" aria-label="Current area"></select>${button("+", "new-area", 'aria-label="Create area"')}</div><div class="area-actions">${button("⌁ Entrances", "entrances")}${button("◉ Settings", "area-settings")}</div></div><div class="objects-heading"><strong>Objects</strong><small id="object-count"></small></div><input id="object-search" class="search" placeholder="⌕  Find an object…" aria-label="Find objects"><div class="object-list" id="objects"></div><div class="side-bottom"><div class="inline-actions">${button("▧ Group", "group")}${button("⧉ Copy", "duplicate", 'aria-label="Duplicate selected"')}${button("⌫", "delete", 'aria-label="Delete selected"')}</div></div></aside>
+    .join("")}<span class="menubar-note">1991, reimagined</span></nav>
+<main class="workspace"><aside class="sidebar"><div class="side-header"><div class="eyebrow">Area</div><div class="area-heading"><select id="area-select" aria-label="Current area"></select>${button(svg("plus"), "new-area", 'class="icon-btn" aria-label="Create area" title="New area"')}</div><div class="area-actions">${button(`${svg("door", 14)}Entrances`, "entrances")}${button(`${svg("settings", 14)}Settings`, "area-settings")}</div></div><div class="objects-heading"><strong>Objects</strong><small id="object-count"></small></div><div class="search">${svg("search", 14)}<input id="object-search" placeholder="Find an object…" aria-label="Find objects"></div><div class="object-list" id="objects"></div><div class="side-bottom"><div class="inline-actions">${button(`${svg("group", 14)}Group`, "group", 'title="Group selected objects"')}${button(`${svg("copy", 14)}Copy`, "duplicate", 'aria-label="Duplicate selected" title="Duplicate selected"')}${button(svg("trash", 15), "delete", 'class="icon-btn danger" aria-label="Delete selected" title="Delete selected"')}</div></div></aside>
 <section class="viewport-shell"><div class="viewport" id="viewport"></div><div id="hud" class="hud"></div><div class="viewport-top"><div class="tool-group" id="tools">${[
-    ["select", "↖", "Select"],
-    ["translate", "✣", "Move"],
-    ["rotate", "⟳", "Rotate"],
-    ["scale", "⤢", "Scale"],
-    ["paint", "▰", "Paint"],
+    ["select", svg("select"), "Select"],
+    ["translate", svg("move"), "Move"],
+    ["rotate", svg("rotate"), "Rotate"],
+    ["scale", svg("scale"), "Scale"],
+    ["paint", svg("paint"), "Paint"],
   ]
     .map(([value, symbol, label]) =>
       button(
@@ -244,8 +233,8 @@ $("#app").innerHTML =
     )
     .join(
       "",
-    )}</div><div class="tool-group">${button("↶", "undo", 'aria-label="Undo" title="Undo · Ctrl Z"')}${button("↷", "redo", 'aria-label="Redo" title="Redo · Ctrl Shift Z"')}</div><div class="viewport-label"><i></i> PERSPECTIVE <span> / </span> <span id="view-label">ORBIT</span></div></div><div class="viewport-corner"><div class="title">A little geometry.<br>An entire world.</div><span class="mono">SELECT · SHAPE · SCRIPT · EXPLORE</span></div><div class="view-controls"><select id="camera-mode" aria-label="Editor camera"><option value="orbit">Orbit</option><option value="cam1">Camera 1</option><option value="cam2">Camera 2</option><option value="cam3">Camera 3</option><option value="cam4">Camera 4</option><option value="cam5">Camera 5</option><option value="walk">Walk</option><option value="fly1">Fly 1</option><option value="fly2">Fly 2</option></select>${button("⊡ Frame", "frame")}${button("Grid", "grid", 'id="grid-button"')}${button("Fine", "fine", 'id="fine-button"')}</div><div class="play-strip hidden" id="play-strip">${button("↑", "step", 'data-value="forward" aria-label="Move forward"')}${button("←", "step", 'data-value="left" aria-label="Move left"')}${button("→", "step", 'data-value="right" aria-label="Move right"')}${button("Activate", "activate")}${button("Shoot", "shoot")}${button("Look around", "pointer-lock")}${button("Save game", "save-game")}${button("Load game", "load-game")}${button("Reset", "reset")}</div></section>
-<aside class="inspector" id="inspector"></aside><section class="bottom-dock"><nav class="dock-tabs" aria-label="World tools">${["primitives", "scripts", "animations", "instruments", "variables", "sounds"].map((t) => button(t[0].toUpperCase() + t.slice(1), "tab", `data-value="${t}" aria-label="${t[0].toUpperCase() + t.slice(1)}"`)).join("")}</nav><div class="dock-content" id="dock"></div></section></main><footer class="statusbar"><span><span class="dot">●</span> <span id="status-mode">EDITOR</span></span><span id="status-area"></span><span id="status-selection"></span><span id="status-coordinates">DRAG TO ORBIT · SCROLL TO ZOOM · F TO FRAME</span></footer>`;
+    )}</div><div class="tool-group">${button(svg("undo"), "undo", 'aria-label="Undo" title="Undo · Ctrl Z"')}${button(svg("redo"), "redo", 'aria-label="Redo" title="Redo · Ctrl Shift Z"')}</div><div class="viewport-label"><i></i>Perspective<span class="sep">/</span><span id="view-label">ORBIT</span></div></div><div class="viewport-corner"><div class="title">A little geometry.<br>An entire world.</div><span class="mono">Select · Shape · Script · Explore</span></div><div class="view-controls"><span class="select-wrap">${svg("camera", 14)}<select id="camera-mode" aria-label="Editor camera"><option value="orbit">Orbit</option><option value="cam1">Camera 1</option><option value="cam2">Camera 2</option><option value="cam3">Camera 3</option><option value="cam4">Camera 4</option><option value="cam5">Camera 5</option><option value="walk">Walk</option><option value="fly1">Fly 1</option><option value="fly2">Fly 2</option></select></span><span class="segmented">${button(`${svg("frame", 14)}Frame`, "frame", 'title="Frame selection · F"')}${button(`${svg("grid", 14)}Grid`, "grid", 'id="grid-button" title="Toggle grid"')}${button(`${svg("fine", 14)}Fine`, "fine", 'id="fine-button" title="Fine steps"')}</span></div><div class="play-strip hidden" id="play-strip"><span class="strip-group">${button("↑", "step", 'data-value="forward" aria-label="Move forward"')}${button("←", "step", 'data-value="left" aria-label="Move left"')}${button("→", "step", 'data-value="right" aria-label="Move right"')}</span><span class="strip-group">${button("Activate", "activate", 'title="E"')}${button("Shoot", "shoot", 'title="Space"')}${button("Look around", "pointer-lock", 'title="Mouse look"')}</span><span class="strip-group">${button("Save game", "save-game", 'title="1"')}${button("Load game", "load-game", 'title="2"')}${button("Reset", "reset")}</span></div></section>
+<aside class="inspector" id="inspector"></aside><section class="bottom-dock"><nav class="dock-tabs" aria-label="World tools">${["primitives", "scripts", "animations", "instruments", "variables", "sounds"].map((t) => button(t[0].toUpperCase() + t.slice(1), "tab", `data-value="${t}" aria-label="${t[0].toUpperCase() + t.slice(1)}"`)).join("")}</nav><div class="dock-content" id="dock"></div></section></main><footer class="statusbar"><span class="status-mode"><span class="dot"></span><span id="status-mode">EDITOR</span></span><span id="status-area"></span><span id="status-selection"></span><span id="status-coordinates">DRAG TO ORBIT · SCROLL TO ZOOM · F TO FRAME</span></footer>`;
 const view = new Viewport($("#viewport"), {
   pick(hit, e) {
     if (player) {
@@ -304,7 +293,7 @@ function renderObjects() {
     .objects.filter((o) => o.name.toLowerCase().includes(search.toLowerCase()))
     .map(
       (o) =>
-        `<div class="object-row ${selected.includes(o.id) ? "selected" : ""} ${o.status !== "visible" ? "invisible" : ""}"><input type="checkbox" data-select="${o.id}" aria-label="Include ${esc(o.name)} in selection" ${selected.includes(o.id) ? "checked" : ""}><button data-action="select" data-value="${o.id}" title="${esc(o.type)} ${o.id}"><span class="object-icon">${icon[o.type]}</span><span class="object-name">${esc(o.name)}</span><span class="object-id">${String(o.id).padStart(3, "0")}</span></button></div>`,
+        `<div class="object-row ${selected.includes(o.id) ? "selected" : ""} ${o.status !== "visible" ? "invisible" : ""}"><input type="checkbox" data-select="${o.id}" aria-label="Include ${esc(o.name)} in selection" ${selected.includes(o.id) ? "checked" : ""}><button data-action="select" data-value="${o.id}" title="${esc(o.type)} ${o.id}"><span class="object-icon">${svg(o.type, 15)}</span><span class="object-name">${esc(o.name)}</span><span class="object-id">${String(o.id).padStart(3, "0")}</span></button></div>`,
     )
     .join("");
 }
@@ -372,11 +361,11 @@ function renderInspector() {
   const o = object();
   if (!o) {
     $("#inspector").innerHTML =
-      `<header class="panel-heading"><h2>Inspector</h2><span class="info-badge">WORLD</span></header><div class="inspector-section"><h3>A place to begin</h3><p class="muted" style="line-height:1.8">Select an object in the scene or the explorer to shape it.</p></div><div class="inspector-section"><h3>${esc(area().name)}</h3><p class="muted">${area().objects.length} objects · ${area().entrances.length} entrances</p><br><div class="inline-actions">${button("Defaults", "settings")}${button("Edit palette", "palette")}</div></div><div class="inspector-section"><h3>Inside the kit</h3><p class="muted" style="line-height:1.9">Simple solids become architecture.<br>Conditions become stories.<br>Press Play to step inside.</p></div>`;
+      `<header class="panel-heading"><h2>Inspector</h2><span class="info-badge">WORLD</span></header><div class="inspector-section guide"><h3>Getting started</h3><p class="guide-lead">Build a world from simple shapes, give it rules, then step inside.</p><ol class="steps"><li><b>Shape</b><span>Click a shape in the tray below. Drag its handles or type exact numbers here.</span></li><li><b>Script</b><span>Give objects rules in <em>Scripts</em>: what happens when they are shot, touched or activated.</span></li><li><b>Play</b><span>Press <em>Play world</em> to walk around inside. <kbd>F1</kbd> brings you back.</span></li></ol><div class="inline-actions">${button(`${svg("play", 13)}Play the sample`, "play", 'class="primary"')}${button("Guide & controls", "help")}</div></div><div class="inspector-section"><h3>${esc(area().name)}</h3><p class="muted">${area().objects.length} objects · ${area().entrances.length} entrances</p><div class="inline-actions" style="margin-top:10px">${button("Defaults", "settings")}${button("Edit palette", "palette")}</div></div>`;
     return;
   }
   $("#inspector").innerHTML =
-    `<header class="panel-heading"><h2>Object properties</h2><span class="info-badge">${esc(o.type).toUpperCase()} ${String(o.id).padStart(3, "0")}</span></header><section class="inspector-section">${field("Object name", o.name, 'data-object-field="name"')}<h3>Transform</h3>${vector("Position", o.position, "position")}${vector("Size", o.size, "size")}${nudgeButtons()}<br><div class="inline-actions">${button("↻ X", "turn", 'data-value="0" title="Turn X 90°"')}${button("↻ Y", "turn", 'data-value="1" title="Turn Y 90°"')}${button("↻ Z", "turn", 'data-value="2" title="Turn Z 90°"')}${button("Flip", "flip")}</div><br><div class="inline-actions">${[
+    `<header class="panel-heading"><h2>Object properties</h2><span class="info-badge">${esc(o.type).toUpperCase()} ${String(o.id).padStart(3, "0")}</span></header><section class="inspector-section">${field("Object name", o.name, 'data-object-field="name"')}<h3>Transform</h3>${vector("Position", o.position, "position")}${vector("Size", o.size, "size")}${nudgeButtons()}<br><div class="inline-actions">${button(`${svg("rotate", 13)}X`, "turn", 'data-value="0" title="Turn X 90°" aria-label="Turn X"')}${button(`${svg("rotate", 13)}Y`, "turn", 'data-value="1" title="Turn Y 90°" aria-label="Turn Y"')}${button(`${svg("rotate", 13)}Z`, "turn", 'data-value="2" title="Turn Z 90°" aria-label="Turn Z"')}${button("Flip", "flip")}</div><br><div class="inline-actions">${[
       ["Front", "z", -1],
       ["Back", "z", 1],
       ["Left", "x", -1],
@@ -451,12 +440,12 @@ function renderDock() {
     .forEach((b) => b.classList.toggle("active", b.dataset.value === tab));
   if (tab === "primitives") {
     $("#dock").innerHTML =
-      `<div class="dock-intro"><small>A world starts with a shape.</small><span class="mono muted">CLICK TO ADD · SHIFT CLICK TO MULTISELECT</span></div><div class="primitive-grid">${TYPES.filter(
+      `<div class="dock-intro"><small>A world starts with a shape.</small><span class="hint">Click to add · Shift-click to multi-select</span></div><div class="primitive-grid kit-tray">${TYPES.filter(
         (t) => t !== "group",
       )
         .map(
           (t) =>
-            `<button class="primitive" data-action="create" data-value="${t}" aria-label="Add ${t}"><span class="shape-icon">${icon[t]}</span>${t[0].toUpperCase() + t.slice(1)}</button>`,
+            `<button class="primitive" data-action="create" data-value="${t}" aria-label="Add ${t}"><span class="shape-icon">${kitPiece(t)}</span><span class="primitive-name">${t[0].toUpperCase() + t.slice(1)}</span></button>`,
         )
         .join("")}</div>`;
     return;
@@ -504,7 +493,9 @@ function render() {
   document.body.classList.toggle("play-mode", playing);
   $("#project-name").textContent = world().name;
   const playButton = $('[data-action="play"]');
-  playButton.textContent = playing ? "■ Editor" : "▶ Play world";
+  playButton.innerHTML = playing
+    ? `${svg("stop")}<span>Editor</span>`
+    : `${svg("play")}<span>Play world</span>`;
   playButton.setAttribute(
     "aria-label",
     playing ? "Return to editor" : "Play world",
@@ -1716,6 +1707,15 @@ function animate(now) {
   } else navigation.step(Math.min(0.05, (now - lastTime) / 1000));
   view.render();
   lastTime = now;
+}
+// Installable app + offline cache when served over HTTPS (e.g. GitHub Pages).
+// Opening the HTML file directly (file://) needs neither.
+if (location.protocol === "https:" && "serviceWorker" in navigator) {
+  const link = document.createElement("link");
+  link.rel = "manifest";
+  link.href = "manifest.webmanifest";
+  document.head.append(link);
+  navigator.serviceWorker.register("sw.js").catch(() => {});
 }
 render();
 requestAnimationFrame(animate);

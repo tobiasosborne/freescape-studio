@@ -103,10 +103,16 @@ export function materialsFor(o, palette) {
   return Array.from({ length: faceCount(o.type) }, (_, i) => {
     const index = o.colors[i % o.colors.length],
       pattern = o.patterns?.[i];
-    const material = new THREE.MeshBasicMaterial({
+    // Lambert so the editor can add soft form shading; the viewport's play
+    // lighting (ambient π, no sun) reproduces the flat palette colour exactly.
+    const material = new THREE.MeshLambertMaterial({
       color: pattern ? "#ffffff" : palette[index] || palette[2],
       side: THREE.FrontSide,
       visible: index !== 0,
+      // Push faces back a touch so editor edge lines never z-fight.
+      polygonOffset: true,
+      polygonOffsetFactor: 1,
+      polygonOffsetUnits: 1,
     });
     if (pattern) {
       const bytes = [];

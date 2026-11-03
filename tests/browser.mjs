@@ -124,7 +124,11 @@ try {
       "--enable-unsafe-swiftshader",
     ],
   });
-  page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+  // Reduced motion: screenshots must not catch dialogs mid-transition.
+  page = await browser.newPage({
+    viewport: { width: 1440, height: 1000 },
+    reducedMotion: "reduce",
+  });
   watch(page);
   await inspect("desktop renderer", async () => {
     await page.goto(
@@ -327,13 +331,19 @@ try {
           .click();
         const initial = await savedGame(standalone);
         assert.ok(initial);
+        // Hold W until a movement tick lands (software WebGL can stall the
+        // first frames while shaders compile), checking via saved games.
+        let moved;
         await standalone.keyboard.down("w");
-        await frames(standalone);
+        for (let i = 0; i < 20; i++) {
+          await standalone.waitForTimeout(150);
+          await standalone
+            .getByRole("button", { name: "Save game", exact: true })
+            .click();
+          moved = await savedGame(standalone);
+          if (moved.position[2] > initial.position[2]) break;
+        }
         await standalone.keyboard.up("w");
-        await standalone
-          .getByRole("button", { name: "Save game", exact: true })
-          .click();
-        const moved = await savedGame(standalone);
         assert.ok(moved.position[2] > initial.position[2]);
         await standalone
           .getByRole("button", { name: "Restart world", exact: true })
