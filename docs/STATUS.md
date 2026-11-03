@@ -35,7 +35,7 @@ The earlier blocked-environment record is retained in `tests/evidence/06-browser
 ## UI refresh and distribution (2026-11-03)
 
 - Interface: SVG icon set (replacing Unicode glyphs that render inconsistently with Windows fonts), layered panels, framed viewport stage, illustrated shape tray, and a getting-started guide in the empty inspector.
-- Editor viewport: soft directional shading, shadows and drafting edge lines help solids read. **Play mode and exported players keep exact flat palette colours** (ambient-only lighting reproduces the palette exactly), matching the original engine.
+- 3D view: soft directional shading, shadows and a sky gradient in the editor, in play mode and in exported players. Drafting edge lines appear in the editor only. **World settings → Look in play → Flat colours** restores the original 1991 look: ambient-only lighting reproduces every palette colour exactly, which a pixel check against the palette confirmed. Worlds without a `look` field play shaded.
 - Distribution: `npm run package` writes `release/Freescape-Studio.html` and a zip with a plain-language START HERE note. Pages builds add a manifest and service worker, so the hosted copy can be installed from Edge/Chrome and works offline.
 
 's manual is the baseline; [browser substitutions](SPEC.md#explicit-browser-adaptations) are explicit. Original binary worlds, proprietary image/sample encodings and native runners are replaced with browser equivalents. Original executable differential conformance and original scan visual verification have not been performed. Manual contradictions, publisher evidence, and implementation choices are recorded in [source decisions](../research/errata.md).

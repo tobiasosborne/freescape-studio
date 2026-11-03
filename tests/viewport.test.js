@@ -90,3 +90,58 @@ test("Three.js viewport installs TransformControls helper, updates picking and d
     dom.window.close();
   }
 });
+test("play is shaded by default; world look 'flat' restores exact palette lighting", () => {
+  const dom = new JSDOM('<div id="view"></div>');
+  const prior = {
+    document: globalThis.document,
+    window: globalThis.window,
+    devicePixelRatio: globalThis.devicePixelRatio,
+    ResizeObserver: globalThis.ResizeObserver,
+  };
+  Object.assign(globalThis, {
+    document: dom.window.document,
+    window: dom.window,
+    devicePixelRatio: 1,
+    ResizeObserver: class {
+      observe() {}
+      disconnect() {}
+    },
+  });
+  try {
+    const host = document.querySelector("#view");
+    Object.defineProperties(host, {
+      clientWidth: { value: 800 },
+      clientHeight: { value: 600 },
+    });
+    const view = new Viewport(host, {}, () => ({
+      domElement: document.createElement("canvas"),
+      setPixelRatio() {},
+      setSize() {},
+      render() {},
+      dispose() {},
+    }));
+    const w = createWorld();
+    createObject(w.areas[1], "cuboid");
+    const lit = () => ({
+      ambient: view.ambient.intensity / Math.PI,
+      sun: view.sun.intensity / Math.PI,
+      shadows: view.sun.castShadow,
+      fog: !!view.scene.fog,
+    });
+    view.update(w, 1, {});
+    const editor = lit();
+    assert.ok(editor.sun > 0 && editor.shadows && editor.fog);
+    view.update(w, 1, { play: true });
+    assert.deepEqual(lit(), editor, "default play matches editor shading");
+    const edges = [...view.meshes.values()][0].userData.edges;
+    assert.equal(edges.visible, false, "drafting edges are editor-only");
+    w.look = "flat";
+    view.update(w, 1, { play: true });
+    assert.deepEqual(lit(), { ambient: 1, sun: 0, shadows: false, fog: false });
+    view.update(w, 1, {});
+    assert.deepEqual(lit(), editor, "editor ignores the play look");
+    view.dispose();
+  } finally {
+    Object.assign(globalThis, prior);
+  }
+});

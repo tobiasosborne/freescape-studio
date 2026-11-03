@@ -78,3 +78,13 @@ test("invalid transforms are atomic", () => {
   assert.throws(() => transformObject(a, o.id, "move", [200, 0, 0]), /bounds/i);
   assert.deepEqual(o.position, [8000, 0, 0]);
 });
+test("world look is optional and limited to shaded or flat", () => {
+  const w = createWorld();
+  assert.equal(parseWorld(serializeWorld(w)).look, undefined);
+  for (const look of ["shaded", "flat"])
+    assert.equal(parseWorld(serializeWorld({ ...w, look })).look, look);
+  assert.throws(
+    () => parseWorld(serializeWorld({ ...w, look: "neon" })),
+    /Invalid world look/,
+  );
+});

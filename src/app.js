@@ -580,7 +580,13 @@ function worldSettings() {
       .map(([k, n]) => number(n, w.defaults[k], `data-default="${k}"`))
       .join(
         "",
-      )}</div><h3>Editing steps</h3><div class="form-grid">${Object.entries(
+      )}</div><h3>Look in play</h3><label>Rendering<select id="setting-look">${options(
+        [
+          ["shaded", "Shaded: soft light and shadows"],
+          ["flat", "Flat colours: original 1991 look"],
+        ],
+        w.look || "shaded",
+      )}</select></label><h3>Editing steps</h3><div class="form-grid">${Object.entries(
       w.preferences,
     )
       .map(([k, v]) =>
@@ -1047,6 +1053,7 @@ document.addEventListener("click", async (e) => {
       case "apply-settings": {
         const name = $("#setting-name").value,
           author = $("#setting-author").value,
+          look = $("#setting-look").value,
           defaults = {},
           preferences = {};
         document
@@ -1060,6 +1067,7 @@ document.addEventListener("click", async (e) => {
         edit((w) => {
           w.name = name;
           w.author = author;
+          w.look = look;
           Object.assign(w.defaults, defaults);
           Object.assign(w.preferences, preferences);
         });

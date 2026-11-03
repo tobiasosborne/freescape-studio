@@ -645,6 +645,9 @@ export function parseWorld(text) {
     )
   )
     throw Error("Start entrance does not exist");
+  // Optional presentation choice; absent means "shaded".
+  if (w.look !== undefined && !["shaded", "flat"].includes(w.look))
+    throw Error("Invalid world look");
   if (!w.preferences) throw Error("Invalid editing preferences");
   for (const key of ["moveStep", "angleStep", "objectStep", "fineStep", "grid"])
     finite(w.preferences[key], 0.01, 8192, `preference ${key}`);

@@ -158,13 +158,23 @@ export class Viewport {
     this.orbit.enabled = !play && !this.transform.dragging;
     this.grid.visible = !play && grid && !exclude;
     const sky = this.area.palette[this.area.horizon ? this.area.sky : 0];
-    this.ambient.intensity = play ? Math.PI : Math.PI * 0.62;
-    this.sun.intensity = play ? 0 : Math.PI * 0.45;
-    this.sun.castShadow = !play;
-    this.scene.background = play ? new THREE.Color(sky) : this.skyGradient(sky);
-    this.scene.fog = play
+    // "flat" (World settings) plays with exact palette colours like the 1991
+    // engine: ambient π alone reproduces each face colour exactly. Otherwise
+    // play and editor share soft sun shading and shadows.
+    const flat = play && world.look === "flat";
+    this.ambient.intensity = flat ? Math.PI : Math.PI * 0.62;
+    this.sun.intensity = flat ? 0 : Math.PI * 0.45;
+    this.sun.castShadow = !flat;
+    this.scene.background = flat
+      ? new THREE.Color(sky)
+      : this.skyGradient(sky);
+    this.scene.fog = flat
       ? null
-      : new THREE.Fog(new THREE.Color(sky).lerp(new THREE.Color(0xffffff), 0.35), 16000, 46000);
+      : new THREE.Fog(
+          new THREE.Color(sky).lerp(new THREE.Color(0xffffff), 0.35),
+          16000,
+          46000,
+        );
     this.host.style.background =
       world.border && play
         ? `center / 100% 100% url("${world.border}")`
