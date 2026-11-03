@@ -2,6 +2,8 @@
 
 A Three.js reimagining of the **1991 16-bit 3D Construction Kit**. Build geometric worlds, define their rules with Freescape Command Language, and export a playable HTML file.
 
+**▶ [Open Freescape Studio in your browser](https://tobiasosborne.github.io/freescape-studio/)** · [Download for offline use](https://github.com/tobiasosborne/freescape-studio/releases/latest)
+
 The original manual is the baseline. [Specification](docs/SPEC.md), [source register](research/sources.json), [source decisions](research/errata.md), [independent semantic goldens](tests/goldens/manual-behavior.json), and [verification status](docs/STATUS.md) are included.
 
 ## Use it (no install)
@@ -14,14 +16,14 @@ The whole app is **one HTML file**. It needs no installer, no server and no inte
 - **Export** creates a separate, single-file *player* for your world. Send that file to friends and they double-click it to play.
 - Any current Edge, Chrome or Firefox works (WebGL 2 is required, and every PC from the last ~10 years has it).
 
-**Online:** the GitHub Pages copy runs in the browser from a link. In Edge or Chrome, the *Install* icon in the address bar (or ⋯ → *Apps* → *Install this site as an app*) adds it to the Start menu, and it then works offline.
+**Online:** [https://tobiasosborne.github.io/freescape-studio/](https://tobiasosborne.github.io/freescape-studio/) runs in the browser, with nothing to download. In Edge or Chrome, the *Install* icon in the address bar (or ⋯ → *Apps* → *Install this site as an app*) adds it to the Start menu, and it then works offline.
 
 ### Sharing it
 
 | Route | How | Notes |
 |---|---|---|
 | Email | Attach `release/Freescape-Studio-v*.zip` (≈330 kB) | Zipped HTML gets past mail filters that strip `.html` attachments. Contains a START HERE note. |
-| Link | GitHub Pages URL | Nothing to download. Installable as an app. |
+| Link | [https://tobiasosborne.github.io/freescape-studio/](https://tobiasosborne.github.io/freescape-studio/) | Nothing to download. Installable as an app. |
 | GitHub Release | Tag `v*` and push | CI attaches the HTML and the zip to the release. |
 
 Build the shareable files locally with `npm run package`, which writes to `release/`.
